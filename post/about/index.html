@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>关于 | Gridea</title>
-<link rel="shortcut icon" href="https://crlrlc.github.io//favicon.ico?v=1602429028016">
+<link rel="shortcut icon" href="https://crlrlc.github.io//favicon.ico?v=1602429676568">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://crlrlc.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="关于 | Gridea - Atom Feed" href="https://crlrlc.github.io//atom.xml">
@@ -28,7 +28,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://crlrlc.github.io/">
-  <img class="avatar" src="https://crlrlc.github.io//images/avatar.png?v=1602429028016" alt="">
+  <img class="avatar" src="https://crlrlc.github.io//images/avatar.png?v=1602429676568" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -123,6 +123,32 @@
 
         
 
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '1330fb8c1289d6f13c31',
+    clientSecret: '65e81a775ef8161516aabb9157b71b8af62b58a1',
+    repo: 'crlrlc.github.io',
+    owner: 'crlrlc',
+    admin: ['crlrlc'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
         
 
         <div class="site-footer">

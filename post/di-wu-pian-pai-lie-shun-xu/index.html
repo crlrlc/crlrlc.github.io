@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | Gridea</title>
+<title>第五篇排列顺序 | Gridea</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,14 +24,14 @@
 
 
 
-    <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
-
-🏠 关于本站
-👨‍💻 博主是谁
-⛹ 兴趣爱好
-📬 联系我呀
-..." />
+    <meta name="description" content="源码:
+1)/给三个数简单排序/
+#include&lt;stdio.h&gt;
+int main(void)
+{
+int a, b, c, d;
+printf(&quot;请输入三个数让系统对其从大到小排序：&quot;);
+scanf_..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -103,20 +103,54 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于</h2>
-            <div class="post-date">2019-01-25</div>
+            <h2 class="post-title">第五篇排列顺序</h2>
+            <div class="post-date">2020-10-13</div>
             
             <div class="post-content" v-pre>
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+              <p>源码:<br>
+1)/<em>给三个数简单排序</em>/<br>
+#include&lt;stdio.h&gt;<br>
+int main(void)<br>
+{<br>
+int a, b, c, d;<br>
+printf(&quot;请输入三个数让系统对其从大到小排序：&quot;);<br>
+scanf_s(&quot;%d %d %d&quot;, &amp;a, &amp;b, &amp;c);</p>
+<pre><code>if (a &lt; b)
+{
+	d = a;
+	a = b;
+	b = d;
+}
+
+if (a &lt; c)
+{
+	d = a;
+	a = c;
+	c = d;
+}
+
+if (b &lt; c)    //千万注意if后面不能有；！！！！！
+{
+	d = b;
+	b = c;
+	c = d;
+}
+
+printf(&quot;%d %d %d\n&quot;, a, b, c);
+return 0;
+}</code></pre>
 
             </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://crlrlc.github.io/post/di-4-pian-xun-huan-ju-li/">
+                  <h3 class="post-title">
+                    第4篇循环举例
+                  </h3>
+                </a>
+              </div>
             
 
             

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | Gridea</title>
+<title>第七篇流程控制 | Gridea</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,14 +24,16 @@
 
 
 
-    <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
-
-🏠 关于本站
-👨‍💻 博主是谁
-⛹ 兴趣爱好
-📬 联系我呀
-..." />
+    <meta name="description" content="源码:
+1)/*
+目的：流程控制：程序执行的顺序，顺序执行，选择，循环
+学习if的用法
+*/
+#include&lt;stdio.h&gt;
+int main(void)
+{
+if (3)
+printf(&quot;aaaa\n&quot;..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -103,20 +105,55 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于</h2>
-            <div class="post-date">2019-01-25</div>
+            <h2 class="post-title">第七篇流程控制</h2>
+            <div class="post-date">2020-10-13</div>
             
             <div class="post-content" v-pre>
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+              <p>源码:<br>
+1)/*<br>
+目的：流程控制：程序执行的顺序，顺序执行，选择，循环<br>
+学习if的用法<br>
+*/<br>
+#include&lt;stdio.h&gt;<br>
+int main(void)<br>
+{<br>
+if (3)<br>
+printf(&quot;aaaa\n&quot;);//输出<br>
+if (0)<br>
+printf(&quot;bbbb\n&quot;);//不输出<br>
+if (0 == 0)<br>
+printf(&quot;ccccc\n&quot;);//输出</p>
+<pre><code>if (1 &gt; 2)
+	printf(&quot;ashdkajhsdk\n&quot;);
+	printf(&quot;bbbb\n&quot;);//结果只输出bbbb
+
+if (3 &gt; 2)
+{
+	printf(&quot;ashdkajhsdk\n&quot;);
+	printf(&quot;bbbb\n&quot;);//两个同时输出或不输出
+}
+
+
+
+
+return 0;
+</code></pre>
+<p>}<br>
+/*<br>
+if！！！在不加括号！！！！的情况下只能控制一个语句的执行<br>
+*/</p>
 
             </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://crlrlc.github.io/post/di-wu-pian-pai-lie-shun-xu/">
+                  <h3 class="post-title">
+                    第五篇排列顺序
+                  </h3>
+                </a>
+              </div>
             
 
             

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | Gridea</title>
+<title>第七篇流程控制2 | Gridea</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,14 +24,14 @@
 
 
 
-    <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
-
-🏠 关于本站
-👨‍💻 博主是谁
-⛹ 兴趣爱好
-📬 联系我呀
-..." />
+    <meta name="description" content="源码：
+1)#include&lt;stdio.h&gt;
+int main(void)
+{
+if (1 &gt; 2)
+printf(&quot;aaaa\n&quot;);//会输出
+else
+printf(&quot;bbbb\n&q..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -103,20 +103,66 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于</h2>
-            <div class="post-date">2019-01-25</div>
+            <h2 class="post-title">第七篇流程控制2</h2>
+            <div class="post-date">2020-10-13</div>
             
             <div class="post-content" v-pre>
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+              <p>源码：<br>
+1)#include&lt;stdio.h&gt;<br>
+int main(void)<br>
+{<br>
+if (1 &gt; 2)<br>
+printf(&quot;aaaa\n&quot;);//会输出<br>
+else<br>
+printf(&quot;bbbb\n&quot;);//不输出<br>
+printf(&quot;cccc\n&quot;);//会输出，有2个语句</p>
+<pre><code>int asd;
+asd = -1231;
+if (asd &gt; 0)
+	printf(&quot;有两个解\n&quot;);
+//printf(&quot;哈哈哈哈&quot;);注意这行不能有，因为else if要与if相匹配
+else if (asd == 0)
+	printf(&quot;只有一个解\n&quot;);//注意，如果if成立，则else if不会执行。
+else
+	printf(&quot;无解\n&quot;);
+
+
+
+
+return 0;
+}
+/*
+if的格式及优先级：
+if(1)
+a;
+else if(2)
+b;		[如果这个成立，则1不成立]
+else if(3)
+c;		【如果这个成立，则1，2都不成立】
+else(这里不可以有表达式！！！！)
+d;		【如果这个成立则1，2，3都不成立】
+【1，2，3都成了的话只执行a】
+
+..............
+else(5&gt;10);
+    xxxx;      
+这个不会报错的原因是：
+else
+（5&gt;10）;【该语句无意义
+xxxxx;
+*/</code></pre>
 
             </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://crlrlc.github.io/post/di-qi-pian-liu-cheng-kong-zhi/">
+                  <h3 class="post-title">
+                    第七篇流程控制
+                  </h3>
+                </a>
+              </div>
             
 
             

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://crlrlc.github.io/</id>
     <title>Gridea</title>
-    <updated>2020-10-13T00:17:17.907Z</updated>
+    <updated>2020-10-13T00:31:20.066Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://crlrlc.github.io/"/>
     <link rel="self" href="https://crlrlc.github.io/atom.xml"/>
@@ -10,6 +10,164 @@
     <logo>https://crlrlc.github.io/images/avatar.png</logo>
     <icon>https://crlrlc.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[第七篇流程控制2]]></title>
+        <id>https://crlrlc.github.io/post/di-qi-pian-liu-cheng-kong-zhi-2/</id>
+        <link href="https://crlrlc.github.io/post/di-qi-pian-liu-cheng-kong-zhi-2/">
+        </link>
+        <updated>2020-10-13T00:29:36.000Z</updated>
+        <content type="html"><![CDATA[<p>源码：<br>
+1)#include&lt;stdio.h&gt;<br>
+int main(void)<br>
+{<br>
+if (1 &gt; 2)<br>
+printf(&quot;aaaa\n&quot;);//会输出<br>
+else<br>
+printf(&quot;bbbb\n&quot;);//不输出<br>
+printf(&quot;cccc\n&quot;);//会输出，有2个语句</p>
+<pre><code>int asd;
+asd = -1231;
+if (asd &gt; 0)
+	printf(&quot;有两个解\n&quot;);
+//printf(&quot;哈哈哈哈&quot;);注意这行不能有，因为else if要与if相匹配
+else if (asd == 0)
+	printf(&quot;只有一个解\n&quot;);//注意，如果if成立，则else if不会执行。
+else
+	printf(&quot;无解\n&quot;);
+
+
+
+
+return 0;
+}
+/*
+if的格式及优先级：
+if(1)
+a;
+else if(2)
+b;		[如果这个成立，则1不成立]
+else if(3)
+c;		【如果这个成立，则1，2都不成立】
+else(这里不可以有表达式！！！！)
+d;		【如果这个成立则1，2，3都不成立】
+【1，2，3都成了的话只执行a】
+
+..............
+else(5&gt;10);
+    xxxx;      
+这个不会报错的原因是：
+else
+（5&gt;10）;【该语句无意义
+xxxxx;
+*/</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[第七篇流程控制]]></title>
+        <id>https://crlrlc.github.io/post/di-qi-pian-liu-cheng-kong-zhi/</id>
+        <link href="https://crlrlc.github.io/post/di-qi-pian-liu-cheng-kong-zhi/">
+        </link>
+        <updated>2020-10-13T00:27:28.000Z</updated>
+        <content type="html"><![CDATA[<p>源码:<br>
+1)/*<br>
+目的：流程控制：程序执行的顺序，顺序执行，选择，循环<br>
+学习if的用法<br>
+*/<br>
+#include&lt;stdio.h&gt;<br>
+int main(void)<br>
+{<br>
+if (3)<br>
+printf(&quot;aaaa\n&quot;);//输出<br>
+if (0)<br>
+printf(&quot;bbbb\n&quot;);//不输出<br>
+if (0 == 0)<br>
+printf(&quot;ccccc\n&quot;);//输出</p>
+<pre><code>if (1 &gt; 2)
+	printf(&quot;ashdkajhsdk\n&quot;);
+	printf(&quot;bbbb\n&quot;);//结果只输出bbbb
+
+if (3 &gt; 2)
+{
+	printf(&quot;ashdkajhsdk\n&quot;);
+	printf(&quot;bbbb\n&quot;);//两个同时输出或不输出
+}
+
+
+
+
+return 0;
+</code></pre>
+<p>}<br>
+/*<br>
+if！！！在不加括号！！！！的情况下只能控制一个语句的执行<br>
+*/</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[第五篇排列顺序]]></title>
+        <id>https://crlrlc.github.io/post/di-wu-pian-pai-lie-shun-xu/</id>
+        <link href="https://crlrlc.github.io/post/di-wu-pian-pai-lie-shun-xu/">
+        </link>
+        <updated>2020-10-13T00:25:45.000Z</updated>
+        <content type="html"><![CDATA[<p>源码:<br>
+1)/<em>给三个数简单排序</em>/<br>
+#include&lt;stdio.h&gt;<br>
+int main(void)<br>
+{<br>
+int a, b, c, d;<br>
+printf(&quot;请输入三个数让系统对其从大到小排序：&quot;);<br>
+scanf_s(&quot;%d %d %d&quot;, &amp;a, &amp;b, &amp;c);</p>
+<pre><code>if (a &lt; b)
+{
+	d = a;
+	a = b;
+	b = d;
+}
+
+if (a &lt; c)
+{
+	d = a;
+	a = c;
+	c = d;
+}
+
+if (b &lt; c)    //千万注意if后面不能有；！！！！！
+{
+	d = b;
+	b = c;
+	c = d;
+}
+
+printf(&quot;%d %d %d\n&quot;, a, b, c);
+return 0;
+}</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[第4篇循环举例]]></title>
+        <id>https://crlrlc.github.io/post/di-4-pian-xun-huan-ju-li/</id>
+        <link href="https://crlrlc.github.io/post/di-4-pian-xun-huan-ju-li/">
+        </link>
+        <updated>2020-10-13T00:24:03.000Z</updated>
+        <content type="html"><![CDATA[<p>源码:<br>
+1)/*<br>
+循环举例算1+3+5+7+9/1—10之间的奇数和<br>
+*/<br>
+#include&lt;stdio.h&gt;<br>
+int main(void)<br>
+{<br>
+int i;<br>
+int sum = 0;<br>
+for (i = 1; i &lt; 10; i += 2)//这里不要加分号！！！切记！！！<br>
+{<br>
+sum = sum + i;<br>
+printf(&quot;哈哈哈哈哈哈哈哈哈\n&quot;);//可以通过这个知道循环的次数<br>
+}<br>
+printf(&quot;sum = %d\n&quot;, sum);<br>
+return 0;<br>
+}</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[第三篇：搞懂运算符]]></title>
         <id>https://crlrlc.github.io/post/di-san-pian-gao-dong-yun-suan-fu/</id>

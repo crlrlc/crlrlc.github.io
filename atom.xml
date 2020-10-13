@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://crlrlc.github.io/</id>
     <title>Gridea</title>
-    <updated>2020-10-13T00:11:10.579Z</updated>
+    <updated>2020-10-13T00:12:13.500Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://crlrlc.github.io/"/>
     <link rel="self" href="https://crlrlc.github.io/atom.xml"/>
@@ -35,17 +35,13 @@ printf(&quot;m=%d, k=%d\n&quot;, m, k);//注意这里的输出结果是20，不�
 return 0;
 }
 /*
-</code></pre>
-<hr>
-<pre><code>注意：
+注意：
 算术运算符：+  - * / %（取余数）。。。%(取余)对象必须是整数!!!!!符号与被除数相同。除数在C语言中16/5=3。16/5.0=3.2000。还要注意输出的数据类型int，float
 关系运算符：&gt; &lt; != ==
 逻辑运算符：！(非)  &amp;&amp;(且)  ||（或）| &amp;&amp;左边的表达式为假 右边表达式不执行| ||左边的表达式为真 右边表达式不执行
 赋值运算符：= += *= /=（请勿中间加空格）
 优先级别：算数》关系》》逻辑》赋值
-</code></pre>
-<p>——————<br>
-*/</p>
+*/</code></pre>
 ]]></content>
     </entry>
     <entry>

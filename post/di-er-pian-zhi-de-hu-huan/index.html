@@ -2,39 +2,27 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>第一个gridea的文章 | Gridea</title>
+<title>第二篇：值的互换 | Gridea</title>
 <link rel="shortcut icon" href="https://crlrlc.github.io//favicon.ico?v=1602547596358">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://crlrlc.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="第一个gridea的文章 | Gridea - Atom Feed" href="https://crlrlc.github.io//atom.xml">
+<link rel="alternate" type="application/atom+xml" title="第二篇：值的互换 | Gridea - Atom Feed" href="https://crlrlc.github.io//atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="1、下载并安装git。
-2、配置环境变量：
-1）
-2）
-3）
-4）
-5）
-6）
-7）
-完成后一直点确定就ok了
-3、gridea的配置：
-8）
-9）
-10)
-11)
-12)
-13)
-14)
-15)
-16)
-17)
-18)
-19)
-4、最后：..." />
+    <meta name="description" content="源码:
+1)/*
+目的：搞会变量的互换
+/
+#include&lt;stdio.h&gt;
+int main(void)
+{
+int i = 4;
+int j = 5;
+/
+i = j;
+j = i;不能将j与i进行互换，正确的做法是引用3..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -97,11 +85,11 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              第一个gridea的文章
+              第二篇：值的互换
             </h2>
             <div class="post-info">
               <span>
-                2020-10-11
+                2020-10-13
               </span>
               <span>
                 1 min read
@@ -111,31 +99,29 @@
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>1、下载并安装git。<br>
-2、配置环境变量：<br>
-1）<img src="https://crlrlc.github.io//post-images/1602386077016.jpg" alt="" loading="lazy"><br>
-2）<img src="https://crlrlc.github.io//post-images/1602382534565.jpg" alt="" loading="lazy"><br>
-3）<img src="https://crlrlc.github.io//post-images/1602382670327.jpg" alt="" loading="lazy"><br>
-4）<img src="https://crlrlc.github.io//post-images/1602382857384.jpg" alt="" loading="lazy"><br>
-5）<img src="https://crlrlc.github.io//post-images/1602383188328.jpg" alt="" loading="lazy"><br>
-6）<img src="https://crlrlc.github.io//post-images/1602384041491.jpg" alt="" loading="lazy"><br>
-7）<img src="https://crlrlc.github.io//post-images/1602384049004.jpg" alt="" loading="lazy"><br>
-完成后一直点确定就ok了<br>
-3、gridea的配置：<br>
-8）<img src="https://crlrlc.github.io//post-images/1602385870413.jpg" alt="" loading="lazy"><br>
-9）<img src="https://crlrlc.github.io//post-images/1602385904416.jpg" alt="" loading="lazy"><br>
-10)<img src="https://crlrlc.github.io//post-images/1602386049163.jpg" alt="" loading="lazy"><br>
-11)<img src="https://crlrlc.github.io//post-images/1602385943204.jpg" alt="" loading="lazy"><br>
-12)<img src="https://crlrlc.github.io//post-images/1602385952573.jpg" alt="" loading="lazy"><br>
-13)<img src="https://crlrlc.github.io//post-images/1602385963120.jpg" alt="" loading="lazy"><br>
-14)<img src="https://crlrlc.github.io//post-images/1602385973339.jpg" alt="" loading="lazy"><br>
-15)<img src="https://crlrlc.github.io//post-images/1602385983071.jpg" alt="" loading="lazy"><br>
-16)<img src="https://crlrlc.github.io//post-images/1602385996547.jpg" alt="" loading="lazy"><br>
-17)<img src="https://crlrlc.github.io//post-images/1602386005637.jpg" alt="" loading="lazy"><br>
-18)<img src="https://crlrlc.github.io//post-images/1602386018152.jpg" alt="" loading="lazy"><br>
-19)<img src="https://crlrlc.github.io//post-images/1602386900654.jpg" alt="" loading="lazy"><br>
-4、最后：<br>
-配置的时候若是有问题，可以检查自己远程那里有没有配错。若一切都没有问题但打开的博客一直404，这是因为博客被墙掉了，这时你应该用VPN才能访问到你的博客。</p>
+                <p>源码:<br>
+1)/*<br>
+目的：搞会变量的互换<br>
+<em>/<br>
+#include&lt;stdio.h&gt;<br>
+int main(void)<br>
+{<br>
+int i = 4;<br>
+int j = 5;<br>
+/</em><br>
+i = j;<br>
+j = i;不能将j与i进行互换，正确的做法是引用3个：i，j，k<br>
+<em>/<br>
+int k;<br>
+k = i;<br>
+i = j;<br>
+j = k;<br>
+printf(&quot;i = %d; j = %d; k = %d&quot;, i, j, k);<br>
+return 0;<br>
+}<br>
+/</em><br>
+最终结果i=5，j=4，k=4<br>
+*/</p>
 
               </div>
               <div class="toc-container">
@@ -148,9 +134,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://crlrlc.github.io/post/hello-gridea/">
+            <a href="https://crlrlc.github.io/post/di-yi-ge-gredea-de-wen-zhang/">
               <h3 class="post-title">
-                Hello Gridea
+                第一个gridea的文章
               </h3>
             </a>
           </div>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://crlrlc.github.io/</id>
     <title>Gridea</title>
-    <updated>2020-10-11T15:24:03.114Z</updated>
+    <updated>2020-10-13T00:06:45.868Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://crlrlc.github.io/"/>
     <link rel="self" href="https://crlrlc.github.io/atom.xml"/>
@@ -10,6 +10,37 @@
     <logo>https://crlrlc.github.io/images/avatar.png</logo>
     <icon>https://crlrlc.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[第二篇：值的互换]]></title>
+        <id>https://crlrlc.github.io/post/di-er-pian-zhi-de-hu-huan/</id>
+        <link href="https://crlrlc.github.io/post/di-er-pian-zhi-de-hu-huan/">
+        </link>
+        <updated>2020-10-13T00:03:21.000Z</updated>
+        <content type="html"><![CDATA[<p>源码:<br>
+1)/*<br>
+目的：搞会变量的互换<br>
+<em>/<br>
+#include&lt;stdio.h&gt;<br>
+int main(void)<br>
+{<br>
+int i = 4;<br>
+int j = 5;<br>
+/</em><br>
+i = j;<br>
+j = i;不能将j与i进行互换，正确的做法是引用3个：i，j，k<br>
+<em>/<br>
+int k;<br>
+k = i;<br>
+i = j;<br>
+j = k;<br>
+printf(&quot;i = %d; j = %d; k = %d&quot;, i, j, k);<br>
+return 0;<br>
+}<br>
+/</em><br>
+最终结果i=5，j=4，k=4<br>
+*/</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[第一个gridea的文章]]></title>
         <id>https://crlrlc.github.io/post/di-yi-ge-gredea-de-wen-zhang/</id>

@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://crlrlc.github.io//favicon.ico?v=1603085438323">
+<link rel="shortcut icon" href="https://crlrlc.github.io//favicon.ico?v=1603085659314">
 <link rel="stylesheet" href="https://crlrlc.github.io//styles/main.css">
 
 
@@ -28,15 +28,16 @@
 PHP是一种运行在服务器端的脚本语言，可以嵌入到HTML中。
 区分PHP代码和HTML代码：代码标记
 
-标准标记（最常用）  
+标准标记（最常用）
++&lt;?  php
+php代码
++?&gt;
 
 
--简短风格
--&lt;?
-echo&quot;简短风格&quot;;
-?&gt;
--然而：
-*..." />
+简短风格
+
+
+echo&quot;简短风格&qu..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -46,7 +47,7 @@ echo&quot;简短风格&quot;;
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://crlrlc.github.io/">
-        <img src="https://crlrlc.github.io//images/avatar.png?v=1603085438323" class="site-logo">
+        <img src="https://crlrlc.github.io//images/avatar.png?v=1603085659314" class="site-logo">
         <h1 class="site-title">Gridea</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -116,19 +117,27 @@ echo&quot;简短风格&quot;;
 PHP是一种运行在服务器端的脚本语言，可以嵌入到HTML中。</p>
 <p>区分PHP代码和HTML代码：代码标记</p>
 <ul>
-<li>标准标记（最常用）  <?php
-  //php代码
-  +?>
-</li>
+<li>标准标记（最常用）<br>
++&lt;?  php</li>
+<li>php代码</li>
+<li>+?&gt;</li>
 </ul>
-<p>-简短风格<br>
--&lt;?<br>
-echo&quot;简短风格&quot;;<br>
-?&gt;<br>
--然而：<img src="https://crlrlc.github.io//post-images/1603084836046.png" alt="" loading="lazy"><br>
-*现在尝试script风格<br>
-*<script language="php"></p>
 <ul>
+<li>简短风格</li>
+<li>
+<?
+</li>
+<li>echo&quot;简短风格&quot;;</li>
+<li>?&gt;</li>
+<li>然而：<img src="https://crlrlc.github.io//post-images/1603084836046.png" alt="" loading="lazy"></li>
+</ul>
+<ul>
+<li>
+<p>现在尝试script风格</p>
+</li>
+<li>
+<script language="php">
+</li>
 <li>
 <p>echo&quot;script&quot;;</p>
 </li>

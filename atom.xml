@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://crlrlc.github.io/</id>
     <title>Gridea</title>
-    <updated>2020-10-19T05:49:18.508Z</updated>
+    <updated>2020-10-20T14:56:24.649Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://crlrlc.github.io/"/>
     <link rel="self" href="https://crlrlc.github.io/atom.xml"/>
@@ -10,6 +10,40 @@
     <logo>https://crlrlc.github.io/images/avatar.png</logo>
     <icon>https://crlrlc.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[php的更新]]></title>
+        <id>https://crlrlc.github.io/post/php-de-geng-xin/</id>
+        <link href="https://crlrlc.github.io/post/php-de-geng-xin/">
+        </link>
+        <updated>2020-10-20T14:25:02.000Z</updated>
+        <content type="html"><![CDATA[<p>##写在前面<br>
+php是一个脚本语言，脚本语言就是不用编译器编译就可以执行的语言。<br>
+在前面我用PHPstudy遇到了一些问题，于是<br>
+我换了PHP的集成环境，<br>
+<img src="https://crlrlc.github.io//post-images/1603204035702.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1603204110700.png" alt="" loading="lazy"><br>
+并且成功转换了代码<br>
+<img src="https://crlrlc.github.io//post-images/1603204501835.png" alt="" loading="lazy"><br>
+并发现一些问题<br>
+##第一<br>
+localhost访问的是<br>
+<img src="https://crlrlc.github.io//post-images/1603204683840.png" alt="" loading="lazy"><br>
+##第二<br>
+index这个名字似乎有神奇的魔力让网页优先访问它<br>
+<img src="https://crlrlc.github.io//post-images/1603205016480.png" alt="" loading="lazy"><br>
+##第三<br>
+在后缀为HTML和PHP是PHP优先<br>
+<img src="https://crlrlc.github.io//post-images/1603205062037.png" alt="" loading="lazy"><br>
+##第四<br>
+虽然在PHP中，变量不用提前声明，但是前面一定要加美元符,如'<span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;#&#039; at position 70: …205284249.png)
+#̲#最后
+目前发现for循环wh…'>i&#039;,就像这样
+![](https://crlrlc.github.io//post-images/1603205284249.png)
+##最后
+目前发现for循环while循环还有if的用法和c语言一样，但是换行符变成了这样&quot;&lt;br&gt;&quot;
+自增自减要这样</span>i++;其他似乎和c语言一样，</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[php的内容]]></title>
         <id>https://crlrlc.github.io/post/php-de-nei-rong/</id>

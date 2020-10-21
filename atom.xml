@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://crlrlc.github.io/</id>
     <title>Gridea</title>
-    <updated>2020-10-20T15:04:28.825Z</updated>
+    <updated>2020-10-21T13:22:26.256Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://crlrlc.github.io/"/>
     <link rel="self" href="https://crlrlc.github.io/atom.xml"/>
@@ -37,6 +37,13 @@ index这个名字似乎有神奇的魔力让网页优先访问它<br>
 ##第四<br>
 虽然在PHP中，变量不用提前声明，但是前面一定要加美元符$$,就像这样<br>
 <img src="https://crlrlc.github.io//post-images/1603206195963.png" alt="" loading="lazy"><br>
+##第五<br>
+php里的应用类似于c中的指针<br>
+同样作用的程序php是这样的<br>
+<img src="https://crlrlc.github.io//post-images/1603286147837.png" alt="" loading="lazy"><br>
+而在c中是这样的<br>
+<img src="https://crlrlc.github.io//post-images/1603286259217.png" alt="" loading="lazy"><br>
+在php中和c的i=%d不同的是，php要是<span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;}&#039;, got &#039;EOF&#039; at end of input: i={'>i={</span>i}的话会变成2=2（假设在这之前<span class='katex-error' title='ParseError: KaTeX parse error: Can&#039;t use function &#039;\&#039;&#039; in math mode at position 29: …c同样的效果，必须加转义字符&#039;\̲&#039;̲  &#039;\$i={'>i=2）要想使php输出与c同样的效果，必须加转义字符&#039;\&#039;  &#039;\$i={</span>i}'<br>
 ##最后<br>
 目前发现for循环while循环还有if的用法和c语言一样，但是换行符变成了这样&quot;<br>&quot;<br>
 自增自减要这样$i++;其他似乎和c语言一样。未完待续。</p>

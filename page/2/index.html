@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>第二篇：值的互换 | Gridea</title>
+<title>Gridea</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -12,31 +12,14 @@
 <link rel="stylesheet" href="https://crlrlc.github.io//styles/main.css">
 
 
-  
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
-  
-
-  
-
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
 
-    <meta name="description" content="源码:
-1)/*
-目的：搞会变量的互换
-/
-#include&lt;stdio.h&gt;
-int main(void)
-{
-int i = 4;
-int j = 5;
-/
-i = j;
-j = i;不能将j与i进行互换，正确的做法是引用3..." />
-    <meta name="keywords" content="" />
+    <meta name="description" content="温故而知新">
+    
   </head>
   <body>
     <div id="app" class="main">
@@ -106,57 +89,36 @@ j = i;不能将j与i进行互换，正确的做法是引用3..." />
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">第二篇：值的互换</h2>
-            <div class="post-date">2020-10-13</div>
-            
-            <div class="post-content" v-pre>
-              <p>源码:<br>
-1)/*<br>
-目的：搞会变量的互换<br>
-<em>/<br>
-#include&lt;stdio.h&gt;<br>
-int main(void)<br>
-{<br>
-int i = 4;<br>
-int j = 5;<br>
-/</em><br>
-i = j;<br>
-j = i;不能将j与i进行互换，正确的做法是引用3个：i，j，k<br>
-<em>/<br>
-int k;<br>
-k = i;<br>
-i = j;<br>
-j = k;<br>
-printf(&quot;i = %d; j = %d; k = %d&quot;, i, j, k);<br>
-return 0;<br>
-}<br>
-/</em><br>
-最终结果i=5，j=4，k=4<br>
-*/</p>
-
-            </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://crlrlc.github.io/post/di-yi-ge-gredea-de-wen-zhang/">
-                  <h3 class="post-title">
-                    第一个gridea的文章
-                  </h3>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://crlrlc.github.io/post/hello-gridea/">
+                  <h2 class="post-title">Hello Gridea</h2>
                 </a>
+                <div class="post-date">
+                  2018-12-12
+                </div>
+                <div class="post-abstract">
+                  <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+
+                </div>
               </div>
-            
-
-            
               
-                <div id="gitalk-container" data-aos="fade-in"></div>
+                <a class="right" href="https://crlrlc.github.io/post/hello-gridea/">
+                  <div class="feature-container" style="background-image: url('https://crlrlc.github.io//post-images/hello-gridea.png')">
+                  </div>
+                </a>
               
+            </article>
+          
 
-              
-            
-
-          </div>
+          <div class="pagination-container">
+  
+    <a href="https://crlrlc.github.io/" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
+  
+  
+</div>
 
         </div>
       </div>
@@ -177,29 +139,6 @@ var app = new Vue({
 </script>
 
 
-
-
-
-  
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
-
-      var gitalk = new Gitalk({
-        clientID: '1330fb8c1289d6f13c31',
-        clientSecret: '65e81a775ef8161516aabb9157b71b8af62b58a1',
-        repo: 'crlrlc.github.io',
-        owner: 'crlrlc',
-        admin: ['crlrlc'],
-        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
-      })
-
-      gitalk.render('gitalk-container')
-
-    </script>
-  
-
-  
 
 
 

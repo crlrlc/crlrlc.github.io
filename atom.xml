@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://crlrlc.github.io/</id>
     <title>Gridea</title>
-    <updated>2020-10-29T09:38:23.048Z</updated>
+    <updated>2020-10-31T15:12:33.641Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://crlrlc.github.io/"/>
     <link rel="self" href="https://crlrlc.github.io/atom.xml"/>
@@ -10,6 +10,22 @@
     <logo>https://crlrlc.github.io/images/avatar.png</logo>
     <icon>https://crlrlc.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[第四次打靶]]></title>
+        <id>https://crlrlc.github.io/post/di-si-ci-da-ba/</id>
+        <link href="https://crlrlc.github.io/post/di-si-ci-da-ba/">
+        </link>
+        <updated>2020-10-31T15:05:26.000Z</updated>
+        <content type="html"><![CDATA[<p>##在师兄的指导下，我进行了底四次靶场实验下面是步骤<br>
+<img src="https://crlrlc.github.io//post-images/1604156810423.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1604156815676.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1604156820417.png" alt="" loading="lazy"><br>
+##补充<br>
+upload3那题我失败了，原因是.htaccess没有双写，只是双写了1.aaa中的木马，<br>
+<img src="https://crlrlc.github.io//post-images/1604157027025.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1604157109287.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[3,upload6]]></title>
         <id>https://crlrlc.github.io/post/3upload6/</id>
@@ -376,40 +392,6 @@ printf(&quot;哈哈哈哈哈哈哈哈哈\n&quot;);//可以通过这个知道循�
 printf(&quot;sum = %d\n&quot;, sum);<br>
 return 0;<br>
 }</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[第三篇：搞懂运算符]]></title>
-        <id>https://crlrlc.github.io/post/di-san-pian-gao-dong-yun-suan-fu/</id>
-        <link href="https://crlrlc.github.io/post/di-san-pian-gao-dong-yun-suan-fu/">
-        </link>
-        <updated>2020-10-13T00:08:00.000Z</updated>
-        <content type="html"><![CDATA[<p>源码：<br>
-1)/*<br>
-目的：搞懂运算符<br>
-*/<br>
-#include&lt;stdio.h&gt;<br>
-int main (void)<br>
-{<br>
-printf(&quot;%d\n&quot;, 16 % 5);//结果是1</p>
-<pre><code>int i = 10;
-int k = 20;
-int m;
-m = (1 &gt; 2) &amp;&amp; (k = 5);//1&gt;2直接判定结果，后面不执行
-printf(&quot;m=%d, k=%d\n&quot;, m, k);//注意这里的输出结果是20，不是5，因为11行的代码是假，所以没有执行
-
-
-
-return 0;
-}
-/*
-注意：
-算术运算符：+  - * / %（取余数）。。。%(取余)对象必须是整数!!!!!符号与被除数相同。除数在C语言中16/5=3。16/5.0=3.2000。还要注意输出的数据类型int，float
-关系运算符：&gt; &lt; != ==
-逻辑运算符：！(非)  &amp;&amp;(且)  ||（或）| &amp;&amp;左边的表达式为假 右边表达式不执行| ||左边的表达式为真 右边表达式不执行
-赋值运算符：= += *= /=（请勿中间加空格）
-优先级别：算数》关系》》逻辑》赋值
-*/</code></pre>
 ]]></content>
     </entry>
 </feed>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://crlrlc.github.io/</id>
     <title>Gridea</title>
-    <updated>2020-11-20T15:25:38.710Z</updated>
+    <updated>2020-11-25T10:43:02.398Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://crlrlc.github.io/"/>
     <link rel="self" href="https://crlrlc.github.io/atom.xml"/>
@@ -10,6 +10,22 @@
     <logo>https://crlrlc.github.io/images/avatar.png</logo>
     <icon>https://crlrlc.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[G2mtu学生?]]></title>
+        <id>https://crlrlc.github.io/post/g2mtu-xue-sheng/</id>
+        <link href="https://crlrlc.github.io/post/g2mtu-xue-sheng/">
+        </link>
+        <updated>2020-11-25T10:34:15.000Z</updated>
+        <content type="html"><![CDATA[<p>1、打开题目，发现这样一个东西：<br>
+<img src="https://crlrlc.github.io//post-images/1606300573295.png" alt="" loading="lazy"><br>
+2、打开burpsuit发现这样的东西<br>
+<img src="https://crlrlc.github.io//post-images/1606300665780.png" alt="" loading="lazy"><br>
+3、把拦截的东西发到重发器上：<br>
+<img src="https://crlrlc.github.io//post-images/1606300868908.png" alt="" loading="lazy"><br>
+4、最终得到flag文件：<br>
+<img src="https://crlrlc.github.io//post-images/1606300943423.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[力口做题]]></title>
         <id>https://crlrlc.github.io/post/li-kou-zuo-ti/</id>
@@ -332,47 +348,6 @@ else
 （5&gt;10）;【该语句无意义
 xxxxx;
 */</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[第七篇流程控制]]></title>
-        <id>https://crlrlc.github.io/post/di-qi-pian-liu-cheng-kong-zhi/</id>
-        <link href="https://crlrlc.github.io/post/di-qi-pian-liu-cheng-kong-zhi/">
-        </link>
-        <updated>2020-10-13T00:27:28.000Z</updated>
-        <content type="html"><![CDATA[<p>源码:<br>
-1)/*<br>
-目的：流程控制：程序执行的顺序，顺序执行，选择，循环<br>
-学习if的用法<br>
-*/<br>
-#include&lt;stdio.h&gt;<br>
-int main(void)<br>
-{<br>
-if (3)<br>
-printf(&quot;aaaa\n&quot;);//输出<br>
-if (0)<br>
-printf(&quot;bbbb\n&quot;);//不输出<br>
-if (0 == 0)<br>
-printf(&quot;ccccc\n&quot;);//输出</p>
-<pre><code>if (1 &gt; 2)
-	printf(&quot;ashdkajhsdk\n&quot;);
-	printf(&quot;bbbb\n&quot;);//结果只输出bbbb
-
-if (3 &gt; 2)
-{
-	printf(&quot;ashdkajhsdk\n&quot;);
-	printf(&quot;bbbb\n&quot;);//两个同时输出或不输出
-}
-
-
-
-
-return 0;
-</code></pre>
-<p>}<br>
-/*<br>
-if！！！在不加括号！！！！的情况下只能控制一个语句的执行<br>
-*/</p>
 ]]></content>
     </entry>
 </feed>

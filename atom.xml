@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://crlrlc.github.io/</id>
     <title>Gridea</title>
-    <updated>2020-11-25T10:43:02.398Z</updated>
+    <updated>2020-11-25T11:35:47.421Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://crlrlc.github.io/"/>
     <link rel="self" href="https://crlrlc.github.io/atom.xml"/>
@@ -10,6 +10,22 @@
     <logo>https://crlrlc.github.io/images/avatar.png</logo>
     <icon>https://crlrlc.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Who are you?]]></title>
+        <id>https://crlrlc.github.io/post/who-are-you/</id>
+        <link href="https://crlrlc.github.io/post/who-are-you/">
+        </link>
+        <updated>2020-11-25T11:21:57.000Z</updated>
+        <content type="html"><![CDATA[<p>1、打开题目发现这个玩意：<br>
+<img src="https://crlrlc.github.io//post-images/1606303752487.png" alt="" loading="lazy"><br>
+2、打开burpsuit并把得到的东西发到重发器上并加上xxe：<br>
+<img src="https://crlrlc.github.io//post-images/1606303852167.png" alt="" loading="lazy"><br>
+3、发送后得到这个东西：<br>
+<img src="https://crlrlc.github.io//post-images/1606303963668.png" alt="" loading="lazy"><br>
+4、再把得到的一大串字母copy到解码器上用bese64解码一下得到flag：<br>
+<img src="https://crlrlc.github.io//post-images/1606304117036.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[G2mtu学生?]]></title>
         <id>https://crlrlc.github.io/post/g2mtu-xue-sheng/</id>
@@ -296,58 +312,6 @@ return 返回本函数里面，形参来接收主函数<br>
 要改的话我待我在多修炼一段时间再说吧。😅</p>
 </li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[第七篇流程控制2]]></title>
-        <id>https://crlrlc.github.io/post/di-qi-pian-liu-cheng-kong-zhi-2/</id>
-        <link href="https://crlrlc.github.io/post/di-qi-pian-liu-cheng-kong-zhi-2/">
-        </link>
-        <updated>2020-10-13T00:29:36.000Z</updated>
-        <content type="html"><![CDATA[<p>源码：<br>
-1)#include&lt;stdio.h&gt;<br>
-int main(void)<br>
-{<br>
-if (1 &gt; 2)<br>
-printf(&quot;aaaa\n&quot;);//会输出<br>
-else<br>
-printf(&quot;bbbb\n&quot;);//不输出<br>
-printf(&quot;cccc\n&quot;);//会输出，有2个语句</p>
-<pre><code>int asd;
-asd = -1231;
-if (asd &gt; 0)
-	printf(&quot;有两个解\n&quot;);
-//printf(&quot;哈哈哈哈&quot;);注意这行不能有，因为else if要与if相匹配
-else if (asd == 0)
-	printf(&quot;只有一个解\n&quot;);//注意，如果if成立，则else if不会执行。
-else
-	printf(&quot;无解\n&quot;);
-
-
-
-
-return 0;
-}
-/*
-if的格式及优先级：
-if(1)
-a;
-else if(2)
-b;		[如果这个成立，则1不成立]
-else if(3)
-c;		【如果这个成立，则1，2都不成立】
-else(这里不可以有表达式！！！！)
-d;		【如果这个成立则1，2，3都不成立】
-【1，2，3都成了的话只执行a】
-
-..............
-else(5&gt;10);
-    xxxx;      
-这个不会报错的原因是：
-else
-（5&gt;10）;【该语句无意义
-xxxxx;
-*/</code></pre>
 ]]></content>
     </entry>
 </feed>

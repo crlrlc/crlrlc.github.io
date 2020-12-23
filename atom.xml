@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://crlrlc.github.io/</id>
     <title>Gridea</title>
-    <updated>2020-11-25T11:55:51.614Z</updated>
+    <updated>2020-12-23T12:23:49.931Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://crlrlc.github.io/"/>
     <link rel="self" href="https://crlrlc.github.io/atom.xml"/>
@@ -10,6 +10,29 @@
     <logo>https://crlrlc.github.io/images/avatar.png</logo>
     <icon>https://crlrlc.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[老烟枪]]></title>
+        <id>https://crlrlc.github.io/post/lao-yan-qiang/</id>
+        <link href="https://crlrlc.github.io/post/lao-yan-qiang/">
+        </link>
+        <updated>2020-12-23T12:06:12.000Z</updated>
+        <content type="html"><![CDATA[<p>1、打开题目，发现与之前不同的是它不在给出网站了，而是给出压缩包<br>
+<img src="https://crlrlc.github.io//post-images/1608725278266.png" alt="" loading="lazy"><br>
+2、解压出来后发现是图片：<br>
+<img src="https://crlrlc.github.io//post-images/1608725342984.jpg" alt="" loading="lazy"><br>
+3、于是我们打开kali虚拟机，（kali其实是Linux系统的一个版本，里边附带了很多渗透测试的工具），并把图片拖进去，并打开终端输入如图所示的一些指令：<br>
+<img src="https://crlrlc.github.io//post-images/1608725761265.png" alt="" loading="lazy"><br>
+4、打开文件夹，我们可以得到flag，他是倒过来的，如图所示：<br>
+<img src="https://crlrlc.github.io//post-images/1608725899561.png" alt="" loading="lazy"><br>
+5、我们试着把他拖出来：<br>
+<img src="https://crlrlc.github.io//post-images/1608726017021.png" alt="" loading="lazy"><br>
+6、如图：<br>
+<img src="https://crlrlc.github.io//post-images/1608726052428.png" alt="" loading="lazy"><br>
+反转处理后：<br>
+<img src="https://crlrlc.github.io//post-images/1608726139656.png" alt="" loading="lazy"><br>
+7、任务完成！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[神奇的登录框]]></title>
         <id>https://crlrlc.github.io/post/shen-qi-de-deng-lu-kuang/</id>
@@ -207,45 +230,6 @@ cation/x-httpd-php .aaa
 ##补充<br>
 在第四部中，我们会好奇为什么域名后面要加‘?a=’，那是因为<br>
 <img src="https://crlrlc.github.io//post-images/1603591262399.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[php的更新]]></title>
-        <id>https://crlrlc.github.io/post/php-de-geng-xin/</id>
-        <link href="https://crlrlc.github.io/post/php-de-geng-xin/">
-        </link>
-        <updated>2020-10-20T14:25:02.000Z</updated>
-        <content type="html"><![CDATA[<p>##写在前面<br>
-php是一个脚本语言，脚本语言就是不用编译器编译就可以执行的语言。<br>
-在前面我用PHPstudy遇到了一些问题，于是<br>
-我换了PHP的集成环境，<br>
-<img src="https://crlrlc.github.io//post-images/1603204035702.png" alt="" loading="lazy"><br>
-<img src="https://crlrlc.github.io//post-images/1603204110700.png" alt="" loading="lazy"><br>
-并且成功转换了代码<br>
-<img src="https://crlrlc.github.io//post-images/1603204501835.png" alt="" loading="lazy"><br>
-并发现一些问题<br>
-##第一<br>
-localhost访问的是<br>
-<img src="https://crlrlc.github.io//post-images/1603204683840.png" alt="" loading="lazy"><br>
-##第二<br>
-index这个名字似乎有神奇的魔力让网页优先访问它<br>
-<img src="https://crlrlc.github.io//post-images/1603205016480.png" alt="" loading="lazy"><br>
-##第三<br>
-在后缀为HTML和PHP是PHP优先<br>
-<img src="https://crlrlc.github.io//post-images/1603205062037.png" alt="" loading="lazy"><br>
-##第四<br>
-虽然在PHP中，变量不用提前声明，但是前面一定要加美元符$$,就像这样<br>
-<img src="https://crlrlc.github.io//post-images/1603206195963.png" alt="" loading="lazy"><br>
-##第五<br>
-php里的应用类似于c中的指针<br>
-同样作用的程序php是这样的<br>
-<img src="https://crlrlc.github.io//post-images/1603286147837.png" alt="" loading="lazy"><br>
-而在c中是这样的<br>
-<img src="https://crlrlc.github.io//post-images/1603286259217.png" alt="" loading="lazy"><br>
-在php中和c的i=%d不同的是，php要是<span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;}&#039;, got &#039;EOF&#039; at end of input: i={'>i={</span>i}的话会变成2=2（假设在这之前<span class='katex-error' title='ParseError: KaTeX parse error: Can&#039;t use function &#039;\&#039;&#039; in math mode at position 29: …c同样的效果，必须加转义字符&#039;\̲&#039;̲  &#039;\$i={'>i=2）要想使php输出与c同样的效果，必须加转义字符&#039;\&#039;  &#039;\$i={</span>i}'<br>
-##最后<br>
-目前发现for循环while循环还有if的用法和c语言一样，但是换行符变成了这样&quot;<br>&quot;<br>
-自增自减要这样$i++;其他似乎和c语言一样。未完待续。</p>
 ]]></content>
     </entry>
 </feed>

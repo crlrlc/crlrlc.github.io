@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://crlrlc.github.io//favicon.ico?v=1687251321845">
+<link rel="shortcut icon" href="https://crlrlc.github.io//favicon.ico?v=1687266487115">
 <link rel="stylesheet" href="https://crlrlc.github.io//styles/main.css">
 
 
@@ -45,7 +45,7 @@ B2C模式（Business To Customer 会员模式）：此项目采用B2C
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://crlrlc.github.io/">
-        <img src="https://crlrlc.github.io//images/avatar.png?v=1687251321845" class="site-logo">
+        <img src="https://crlrlc.github.io//images/avatar.png?v=1687266487115" class="site-logo">
         <h1 class="site-title">Gridea</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -134,7 +134,1105 @@ B2C模式（Business To Customer 会员模式）：此项目采用B2C
 <h3 id="数据库">数据库</h3>
 <p>guli</p>
 <h3 id="数据表">数据表</h3>
-<p><code>CREATE TABLE</code>edu_teacher<code>(</code>id<code>char(19) NOT NULL COMMENT '讲师ID',</code>name<code>varchar(20) NOT NULL COMMENT '讲师姓名',</code>intro<code>varchar(500) NOT NULL DEFAULT '' COMMENT '讲师简介',</code>career<code>varchar(500) DEFAULT NULL COMMENT '讲师资历,一句话说明讲师',</code>level<code>int(10) unsigned NOT NULL COMMENT '头衔 1高级讲师 2首席讲师',</code>avatar<code>varchar(255) DEFAULT NULL COMMENT '讲师头像',</code>sort<code>int(10) unsigned NOT NULL DEFAULT '0' COMMENT '排序',</code>is_deleted<code>tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '逻辑删除 1（true）已删除， 0（false）未删除',</code>gmt_create<code>datetime NOT NULL COMMENT '创建时间',</code>gmt_modified<code>datetime NOT NULL COMMENT '更新时间', PRIMARY KEY (</code>id<code>), UNIQUE KEY</code>uk_name<code>(</code>name<code>) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='讲师';</code></p>
+<pre><code class="language-sql">CREATE TABLE `edu_teacher` (
+  `id` char(19) NOT NULL COMMENT '讲师ID',
+  `name` varchar(20) NOT NULL COMMENT '讲师姓名',
+  `intro` varchar(500) NOT NULL DEFAULT '' COMMENT '讲师简介',
+  `career` varchar(500) DEFAULT NULL COMMENT '讲师资历,一句话说明讲师',
+  `level` int(10) unsigned NOT NULL COMMENT '头衔 1高级讲师 2首席讲师',
+  `avatar` varchar(255) DEFAULT NULL COMMENT '讲师头像',
+  `sort` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `is_deleted` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '逻辑删除 1（true）已删除， 0（false）未删除',
+  `gmt_create` datetime NOT NULL COMMENT '创建时间',
+  `gmt_modified` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='讲师';
+
+</code></pre>
+<h3 id="插入数据">插入数据</h3>
+<pre><code class="language-sql">INSERT INTO `edu_teacher` VALUES ('1','张三','近年主持国家自然科学基金（6项）、江苏省重大科技成果转化项目（5项）、江苏省产学研前瞻性联合研究项目（3项）、省工业科技支撑、省高技术、省自然科学基金等省部级及其企业的主要科研项目40多个，多个项目在企业成功转化，产生了较好的经济、社会和环境效益。积极开展产学研科技合作，并与省内16家企业建立了江苏省研究生工作站，其中6家为江苏省优秀研究生工作站','高级',1,'https://guli-file-190513.oss-cn-beijing.aliyuncs.com/avatar/default.jpg',0,0,'2019-10-30 14:18:46','2019-11-12 13:36:36'),('1189389726308478977','晴天','高级讲师简介','高级讲师资历',2,'https://online-teach-file.oss-cn-beijing.aliyuncs.com/teacher/2019/10/30/de47ee9b-7fec-43c5-8173-13c5f7f689b2.png',1,0,'2019-10-30 11:53:03','2019-10-30 11:53:03'),('1189390295668469762','李刚','高级讲师简介','高级讲师',2,'https://online-teach-file.oss-cn-beijing.aliyuncs.com/teacher/2019/10/30/b8aa36a2-db50-4eca-a6e3-cc6e608355e0.png',2,0,'2019-10-30 11:55:19','2019-11-12 13:37:52'),('1189426437876985857','王二','高级讲师简介','高级讲师',1,'https://online-teach-file.oss-cn-beijing.aliyuncs.com/teacher/2019/11/08/e44a2e92-2421-4ea3-bb49-46f2ec96ef88.png',0,0,'2019-10-30 14:18:56','2019-11-12 13:37:35'),('1189426464967995393','王五','高级讲师简介','高级讲师',1,'https://online-teach-file.oss-cn-beijing.aliyuncs.com/teacher/2019/10/30/65423f14-49a9-4092-baf5-6d0ef9686a85.png',0,0,'2019-10-30 14:19:02','2019-11-12 13:37:18'),('1192249914833055746','李四','高级讲师简介','高级讲师',1,'https://online-teach-file.oss-cn-beijing.aliyuncs.com/teacher/2019/11/07/91871e25-fd83-4af6-845f-ea8d471d825d.png',0,0,'2019-11-07 09:18:25','2019-11-12 13:37:01'),('1192327476087115778','1222-12-12','1111','11',1,'https://online-teach-file.oss-cn-beijing.aliyuncs.com/teacher/2019/11/08/5805c6cd-c8ad-4a77-aafd-d2e083bfd8a4.png',0,1,'2019-11-07 14:26:37','2019-11-11 16:26:26'),('1195337453429129218','test','sdfsdf','sdfdf',1,'https://guli-file-190513.oss-cn-beijing.aliyuncs.com/avatar/default.jpg',0,1,'2019-11-15 21:47:12','2019-11-15 21:47:27');
+</code></pre>
+<h2 id="二-数据库设计规约">二、数据库设计规约</h2>
+<p>以下规约只针对本模块，更全面的文档参考《阿里巴巴Java开发手册》：五、MySQL数据库<br>
+1、库名与应用名称尽量一致</p>
+<p>2、表名、字段名必须使用小写字母或数字，禁止出现数字开头，</p>
+<p>3、表名不使用复数名词</p>
+<p>4、表的命名最好是加上“业务名称_表的作用”。如，edu_teacher_</p>
+<p>5、表必备三字段：id, gmt_create, gmt_modified</p>
+<p>说明：<br>
+其中 id 必为主键，类型为 bigint unsigned、单表时自增、步长为 1。<br>
+（如果使用分库分表集群部署，则id类型为verchar，非自增，业务中使用分布式id生成器）<br>
+gmt_create, gmt_modified 的类型均为 datetime 类型，前者现在时表示主动创建，后者过去分词表示被动更新。</p>
+<p>6、单表行数超过 500 万行或者单表容量超过 2GB，才推荐进行分库分表。 说明：如果预计三年后的数<br>
+据量根本达不到这个级别，请不要在创建表时就分库分表。<br>
+guli_edu.sql 1</p>
+<p>7、表达是与否概念的字段，必须使用 is_xxx 的方式命名，数据类型是 unsigned tinyint （1 表示是，0 表示否）。<br>
+说明：任何字段如果为非负数，必须是 unsigned。<br>
+注意：POJO 类中的任何布尔类型的变量，都不要加 is 前缀。数据库表示是与否的值，使用 tinyint 类型，坚持 is_xxx 的 命名方式是为了明确其取值含义与取值范围。<br>
+正例：表达逻辑删除的字段名 is_deleted，1 表示删除，0 表示未删除。</p>
+<p>8、小数类型为 decimal，禁止使用 float 和 double。 说明：float 和 double 在存储的时候，存在精度损失的问题，很可能在值的比较时，得到不 正确的结果。如果存储的数据范围超过 decimal 的范围，建议将数据拆成整数和小数分开存储。</p>
+<p>9、如果存储的字符串长度几乎相等，使用 char 定长字符串类型。</p>
+<p>10、varchar 是可变长字符串，不预先分配存储空间，长度不要超过 5000，如果存储长度大于此值，定<br>
+义字段类型为 text，独立出来一张表，用主键来对应，避免影响其它字段索 引效率。</p>
+<p>11、唯一索引名为 uk_字段名；普通索引名则为 idx_字段名。<br>
+说明：uk_ 即 unique key；idx_ 即 index 的简称</p>
+<p>12、不得使用外键与级联，一切外键概念必须在应用层解决。外键与级联更新适用于单机低并发，不适<br>
+合分布式、高并发集群；级联更新是强阻塞，存在数据库更新风暴的风险；外键影响数据库的插入速<br>
+度。</p>
+<h1 id="三-搭建项目工程父工程">三、搭建项目工程（父工程）</h1>
+<h3 id="一-项目构架">一、项目构架</h3>
+<p>此项目为一体工程，不是分布式项目<br>
+<img src="https://crlrlc.github.io//post-images/1687261740506.png" alt="" loading="lazy"></p>
+<h4 id="1-工程结构介绍">1、工程结构介绍</h4>
+<figure data-type="image" tabindex="6"><img src="https://crlrlc.github.io//post-images/1687261763596.png" alt="" loading="lazy"></figure>
+<h4 id="2-模块说明">2、模块说明</h4>
+<figure data-type="image" tabindex="7"><img src="https://crlrlc.github.io//post-images/1687261787255.png" alt="" loading="lazy"></figure>
+<h3 id="二-创建父工程">二、创建父工程</h3>
+<h4 id="1-创建sprigboot工程guli-parent">1、创建sprigboot工程guli-parent</h4>
+<p>在idea开发工具中，使用 Spring Initializr 快速初始化一个 Spring Boot 模块，</p>
+<p>版本使用：2.2.1.RELEASE<br>
+<img src="https://crlrlc.github.io//post-images/1687261890804.png" alt="" loading="lazy"></p>
+<h5 id="配置">配置：</h5>
+<p>groupId：com.achang</p>
+<p>artifactId：guli_parent</p>
+<p>一直下一步到完成<br>
+<img src="https://crlrlc.github.io//post-images/1687261965882.png" alt="" loading="lazy"></p>
+<h4 id="2-删除-src-目录">2、删除 src 目录</h4>
+<figure data-type="image" tabindex="8"><img src="https://crlrlc.github.io//post-images/1687262083748.png" alt="" loading="lazy"></figure>
+<h4 id="3-配置-pomxml">3、配置 pom.xml</h4>
+<p>修改版本为 ：2.2.1.RELEASE<br>
+<img src="https://crlrlc.github.io//post-images/1687262161117.png" alt="" loading="lazy"></p>
+<p><artifactId> 节点后面添加 pom类型</p>
+<pre><code class="language-xml">&lt;artifactId&gt;guli-parent&lt;/artifactId&gt;
+&lt;packaging&gt;pom&lt;/packaging&gt;
+</code></pre>
+<h4 id="4-在pomxml中添加依赖的版本">4、在pom.xml中添加依赖的版本</h4>
+<p>删除pom.xml中的 <dependencies>内容</p>
+<pre><code class="language-xml">&lt;!--以下为删除的内容--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>添加 <properties>确定依赖的版本</p>
+<p>对这个项目进行 版本控制</p>
+<pre><code class="language-xml">&lt;properties&gt;
+    &lt;java.version&gt;1.8&lt;/java.version&gt;
+    &lt;guli.version&gt;0.0.1-SNAPSHOT&lt;/guli.version&gt;
+    &lt;mybatis-plus.version&gt;3.0.5&lt;/mybatis-plus.version&gt;
+    &lt;velocity.version&gt;2.0&lt;/velocity.version&gt;
+    &lt;swagger.version&gt;2.7.0&lt;/swagger.version&gt;
+    &lt;aliyun.oss.version&gt;2.8.3&lt;/aliyun.oss.version&gt;
+    &lt;jodatime.version&gt;2.10.1&lt;/jodatime.version&gt;
+    &lt;poi.version&gt;3.17&lt;/poi.version&gt;
+    &lt;commons-fileupload.version&gt;1.3.1&lt;/commons-fileupload.version&gt;
+    &lt;commons-io.version&gt;2.6&lt;/commons-io.version&gt;
+    &lt;httpclient.version&gt;4.5.1&lt;/httpclient.version&gt;
+    &lt;jwt.version&gt;0.7.0&lt;/jwt.version&gt;
+    &lt;aliyun-java-sdk-core.version&gt;4.3.3&lt;/aliyun-java-sdk-core.version&gt;
+    &lt;aliyun-sdk-oss.version&gt;3.1.0&lt;/aliyun-sdk-oss.version&gt;
+    &lt;aliyun-java-sdk-vod.version&gt;2.15.2&lt;/aliyun-java-sdk-vod.version&gt;
+    &lt;aliyun-java-vod-upload.version&gt;1.4.11&lt;/aliyun-java-vod-upload.version&gt;
+    &lt;aliyun-sdk-vod-upload.version&gt;1.4.11&lt;/aliyun-sdk-vod-upload.version&gt;
+    &lt;fastjson.version&gt;1.2.28&lt;/fastjson.version&gt;
+    &lt;gson.version&gt;2.8.2&lt;/gson.version&gt;
+    &lt;json.version&gt;20170516&lt;/json.version&gt;
+    &lt;commons-dbutils.version&gt;1.7&lt;/commons-dbutils.version&gt;
+    &lt;canal.client.version&gt;1.1.0&lt;/canal.client.version&gt;
+    &lt;docker.image.prefix&gt;zx&lt;/docker.image.prefix&gt;
+    &lt;cloud-alibaba.version&gt;0.2.2.RELEASE&lt;/cloud-alibaba.version&gt;
+&lt;/properties&gt;
+</code></pre>
+<p>配置 <dependencyManagement> 锁定依赖的版本</p>
+<p>这里不会直接导入，只 会后面项目引入后才导入</p>
+<pre><code class="language-xml">    &lt;!--依赖管理--&gt;
+    &lt;dependencyManagement&gt;
+        &lt;dependencies&gt;
+            &lt;!--Spring Cloud--&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+                &lt;version&gt;Hoxton.RELEASE&lt;/version&gt;
+                &lt;type&gt;pom&lt;/type&gt;
+                &lt;scope&gt;import&lt;/scope&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-cloud-alibaba-dependencies&lt;/artifactId&gt;
+                &lt;version&gt;${cloud-alibaba.version}&lt;/version&gt;
+                &lt;type&gt;pom&lt;/type&gt;
+                &lt;scope&gt;import&lt;/scope&gt;
+            &lt;/dependency&gt;
+            &lt;!--mybatis-plus 持久层--&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+                &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
+                &lt;version&gt;${mybatis-plus.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;!-- velocity 模板引擎, Mybatis Plus 代码生成器需要 --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;
+                &lt;artifactId&gt;velocity-engine-core&lt;/artifactId&gt;
+                &lt;version&gt;${velocity.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+
+            &lt;!--swagger--&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+                &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;
+                &lt;version&gt;${swagger.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;!--swagger ui--&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+                &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;
+                &lt;version&gt;${swagger.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;!--aliyunOSS--&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.aliyun.oss&lt;/groupId&gt;
+                &lt;artifactId&gt;aliyun-sdk-oss&lt;/artifactId&gt;
+                &lt;version&gt;${aliyun.oss.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;!--日期时间工具--&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;joda-time&lt;/groupId&gt;
+                &lt;artifactId&gt;joda-time&lt;/artifactId&gt;
+                &lt;version&gt;${jodatime.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;!--xls--&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
+                &lt;artifactId&gt;poi&lt;/artifactId&gt;
+                &lt;version&gt;${poi.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;!--xlsx--&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
+                &lt;artifactId&gt;poi-ooxml&lt;/artifactId&gt;
+                &lt;version&gt;${poi.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;!--文件上传--&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;
+                &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;
+                &lt;version&gt;${commons-fileupload.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;!--commons-io--&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;commons-io&lt;/groupId&gt;
+                &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+                &lt;version&gt;${commons-io.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;!--httpclient--&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;
+                &lt;artifactId&gt;httpclient&lt;/artifactId&gt;
+                &lt;version&gt;${httpclient.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.google.code.gson&lt;/groupId&gt;
+                &lt;artifactId&gt;gson&lt;/artifactId&gt;
+                &lt;version&gt;${gson.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;!-- JWT --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;
+                &lt;artifactId&gt;jjwt&lt;/artifactId&gt;
+                &lt;version&gt;${jwt.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;!--aliyun--&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.aliyun&lt;/groupId&gt;
+                &lt;artifactId&gt;aliyun-java-sdk-core&lt;/artifactId&gt;
+                &lt;version&gt;${aliyun-java-sdk-core.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.aliyun.oss&lt;/groupId&gt;
+                &lt;artifactId&gt;aliyun-sdk-oss&lt;/artifactId&gt;
+                &lt;version&gt;${aliyun-sdk-oss.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.aliyun&lt;/groupId&gt;
+                &lt;artifactId&gt;aliyun-java-sdk-vod&lt;/artifactId&gt;
+                &lt;version&gt;${aliyun-java-sdk-vod.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.aliyun&lt;/groupId&gt;
+                &lt;artifactId&gt;aliyun-java-vod-upload&lt;/artifactId&gt;
+                &lt;version&gt;${aliyun-java-vod-upload.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.aliyun&lt;/groupId&gt;
+                &lt;artifactId&gt;aliyun-sdk-vod-upload&lt;/artifactId&gt;
+                &lt;version&gt;${aliyun-sdk-vod-upload.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+                &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
+                &lt;version&gt;${fastjson.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.json&lt;/groupId&gt;
+                &lt;artifactId&gt;json&lt;/artifactId&gt;
+                &lt;version&gt;${json.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;commons-dbutils&lt;/groupId&gt;
+                &lt;artifactId&gt;commons-dbutils&lt;/artifactId&gt;
+                &lt;version&gt;${commons-dbutils.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.alibaba.otter&lt;/groupId&gt;
+                &lt;artifactId&gt;canal.client&lt;/artifactId&gt;
+                &lt;version&gt;${canal.client.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+    &lt;/dependencyManagement&gt;
+</code></pre>
+<h3 id="四-搭建service模块">四、搭建service模块</h3>
+<h4 id="一-搭建service模块">一、搭建service模块</h4>
+<h5 id="1-在父工程guli-parent下面创建模块service">1、在父工程guli-parent下面创建模块service</h5>
+<figure data-type="image" tabindex="9"><img src="https://crlrlc.github.io//post-images/1687262516428.png" alt="" loading="lazy"></figure>
+<p>选择 maven类型，点击下一步</p>
+<p>输入模块名称 service，下一步完成创建<br>
+<img src="https://crlrlc.github.io//post-images/1687262588940.png" alt="" loading="lazy"></p>
+<h5 id="2-添加模块类型是pom">2、添加模块类型是pom</h5>
+<p><artifactId> 节点后面添加 pom类型</p>
+<pre><code class="language-xml">&lt;artifactId&gt;service&lt;/artifactId&gt;
+&lt;packaging&gt;pom&lt;/packaging&gt;
+</code></pre>
+<h5 id="3-添加项目需要的依赖">3、添加项目需要的依赖</h5>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-netflix-ribbon&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--hystrix依赖，主要是用 @HystrixCommand --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--服务注册--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--服务调用--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--mybatis-plus--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+    &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--mysql--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;mysql&lt;/groupId&gt;
+    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!-- velocity 模板引擎, Mybatis Plus 代码生成器需要 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;
+    &lt;artifactId&gt;velocity-engine-core&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--swagger--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--lombok用来简化实体类：需要安装lombok插件--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+    &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--xls--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
+    &lt;artifactId&gt;poi&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
+    &lt;artifactId&gt;poi-ooxml&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;
+    &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--httpclient--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;
+    &lt;artifactId&gt;httpclient&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--commons-io--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;commons-io&lt;/groupId&gt;
+    &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--gson--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.google.code.gson&lt;/groupId&gt;
+    &lt;artifactId&gt;gson&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;junit&lt;/groupId&gt;
+    &lt;artifactId&gt;junit&lt;/artifactId&gt;
+    &lt;version&gt;4.12&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>删除service模块的src目录</p>
+<h4 id="二-搭建service-edu模块">二、搭建service-edu模块</h4>
+<h5 id="1-在父工程service模块下面创建子模块service-edu">1、在父工程service模块下面创建子模块service-edu</h5>
+<figure data-type="image" tabindex="10"><img src="https://crlrlc.github.io//post-images/1687262760684.png" alt="" loading="lazy"></figure>
+<h3 id="五-讲师管理模块配置">五、讲师管理模块配置</h3>
+<h4 id="1-在service下面service-edu模块中创建配置文件">1、在service下面service-edu模块中创建配置文件</h4>
+<figure data-type="image" tabindex="11"><img src="https://crlrlc.github.io//post-images/1687262833003.png" alt="" loading="lazy"></figure>
+<p>resources目录下创建文件 application.properties</p>
+<pre><code class="language-properties"># 服务端口
+server.port=8001
+# 服务名
+spring.application.name=service-edu
+# 环境设置：dev、test、prod
+spring.profiles.active=dev
+# mysql数据库连接
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/guli?serverTimezone=GMT%2B8
+spring.datasource.username=root
+spring.datasource.password=00000
+# mybatis日志
+mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+</code></pre>
+<h4 id="2-创建mp代码生成器">2、创建MP代码生成器</h4>
+<p>在test/java目录下创建包com.achang.eduservice，创建代码生成器：CodeGenerator.java</p>
+<pre><code class="language-java">package com.achang.eduservice;
+
+import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import com.baomidou.mybatisplus.generator.config.GlobalConfig;
+import com.baomidou.mybatisplus.generator.config.PackageConfig;
+import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.rules.DateType;
+import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import org.junit.Test;
+
+/**
+ * @阿昌
+ */
+public class CodeGenerator {
+
+    @Test
+    public void run() {
+
+        // 1、创建代码生成器
+        AutoGenerator mpg = new AutoGenerator();
+
+        // 2、全局配置
+        GlobalConfig gc = new GlobalConfig();
+        String projectPath = System.getProperty(&quot;user.dir&quot;);
+        gc.setOutputDir(&quot;D:\\JavaStudy\\gulixueyuan\\guli_parent\\service\\service_edu&quot; + &quot;/src/main/java&quot;); //输出目录
+
+        gc.setAuthor(&quot;achang&quot;); //作者名
+        gc.setOpen(false); //生成后是否打开资源管理器
+        gc.setFileOverride(false); //重新生成时文件是否覆盖
+
+        gc.setServiceName(&quot;%sService&quot;);	//去掉Service接口的首字母I
+        gc.setIdType(IdType.ID_WORKER_STR); //主键策略
+        gc.setDateType(DateType.ONLY_DATE);//定义生成的实体类中日期类型
+        gc.setSwagger2(true);//开启Swagger2模式
+
+        mpg.setGlobalConfig(gc);
+
+        // 3、数据源配置
+        DataSourceConfig dsc = new DataSourceConfig();
+        dsc.setUrl(&quot;jdbc:mysql://localhost:3306/guli?serverTimezone=GMT%2B8&quot;);
+        dsc.setDriverName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+        dsc.setUsername(&quot;root&quot;);
+        dsc.setPassword(&quot;00000&quot;);
+        dsc.setDbType(DbType.MYSQL);
+        mpg.setDataSource(dsc);
+
+        // 4、包配置
+        PackageConfig pc = new PackageConfig();
+
+        //生成包：com.achang.eduservice
+        pc.setModuleName(&quot;eduservice&quot;); //模块名
+        pc.setParent(&quot;com.achang&quot;);
+
+        //生成包：com.achang.controller
+        pc.setController(&quot;controller&quot;);
+        pc.setEntity(&quot;entity&quot;);
+        pc.setService(&quot;service&quot;);
+        pc.setMapper(&quot;mapper&quot;);
+        mpg.setPackageInfo(pc);
+
+        // 5、策略配置
+        StrategyConfig strategy = new StrategyConfig();
+        strategy.setInclude(&quot;edu_teacher&quot;);//根据数据库哪张表生成，有多张表就加逗号继续填写
+
+        strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
+        strategy.setTablePrefix(pc.getModuleName() + &quot;_&quot;); //生成实体时去掉表前缀
+
+        strategy.setColumnNaming(NamingStrategy.underline_to_camel);//数据库表字段映射到实体的命名策略
+        strategy.setEntityLombokModel(true); // lombok 模型 @Accessors(chain = true) setter链式操作
+
+        strategy.setRestControllerStyle(true); //restful api风格控制器
+        strategy.setControllerMappingHyphenStyle(true); //url中驼峰转连字符
+
+        mpg.setStrategy(strategy);
+
+
+        // 6、执行
+        mpg.execute();
+    }
+}
+</code></pre>
+<figure data-type="image" tabindex="12"><img src="https://crlrlc.github.io//post-images/1687263020705.png" alt="" loading="lazy"></figure>
+<h3 id="六-编写后台管理api接口">六、编写后台管理api接口</h3>
+<h4 id="1-编写controller代码">1、编写controller代码</h4>
+<pre><code class="language-java">@RestController
+@RequestMapping(&quot;/eduservice/edu-teacher&quot;)
+public class EduTeacherController {
+
+    @Autowired
+    private EduTeacherService eduTeacherService;
+
+    //查询讲师表所有数据
+    @GetMapping(&quot;/findAll&quot;)
+    public List&lt;EduTeacher&gt; list(){
+        return eduTeacherService.list(null);
+    }
+
+}
+</code></pre>
+<h4 id="2-创建springboot配置类">2、创建SpringBoot配置类</h4>
+<p>在edu包下创建config包，创建MyBatisPlusConfig.java</p>
+<pre><code class="language-java">@Configuration
+@EnableTransactionManagement
+@MapperScan(&quot;com.achang.eduservice.mapper&quot;)
+public class MyBatisPlusConfig {
+}
+</code></pre>
+<h4 id="3-配置sql执行性能分析插件">3、配置SQL执行性能分析插件</h4>
+<p>在MyBatisPlusConfig下配置</p>
+<pre><code class="language-java">/**
+* SQL 执行性能分析插件
+* 开发环境使用，线上不推荐。 maxTime 指的是 sql 最大执行时长
+*/
+@Bean
+@Profile({&quot;dev&quot;,&quot;test&quot;})// 设置 dev test 环境开启
+public PerformanceInterceptor performanceInterceptor() {
+PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();
+performanceInterceptor.setMaxTime(1000);//ms，超过此处设置的ms则sql不执行
+performanceInterceptor.setFormat(true);
+return performanceInterceptor;
+}
+</code></pre>
+<h4 id="4-创建springboot启动类">4、创建SpringBoot启动类</h4>
+<p>创建启动类 Service_edu_Main8001.java，注意启动类的创建位置</p>
+<pre><code class="language-java">@SpringBootApplication
+public class Service_edu_Main8001 {
+    public static void main(String[] args) {
+        SpringApplication.run(Service_edu_Main8001.class,args);
+    }
+}
+</code></pre>
+<h4 id="5-运行启动类">5、运行启动类</h4>
+<p>访问http://localhost:8001/eduservice/edu-teacher/findAll<br>
+得到json数据</p>
+<figure data-type="image" tabindex="13"><img src="https://crlrlc.github.io//post-images/1687264915682.png" alt="" loading="lazy"></figure>
+<h4 id="6-统一返回的json时间格式">6、统一返回的json时间格式</h4>
+<p>默认情况下json时间格式带有时区，并且是世界标准时间，和我们的时间差了八个小时</p>
+<p>在application.properties中设置</p>
+<pre><code class="language-properties">#返回json的全局时间格式
+spring.jackson.date-format=yyyy-MM-dd HH:mm:ss
+spring.jackson.time-zone=GMT+8
+</code></pre>
+<h3 id="七-讲师逻辑删除功能">七、讲师逻辑删除功能</h3>
+<h4 id="1-eduteachercontroller添加删除方法">1、EduTeacherController添加删除方法</h4>
+<pre><code class="language-java">//逻辑删除讲师
+@DeleteMapping(&quot;/deleteTeacherById/{id}&quot;)
+public boolean deleteTeacherById(@PathVariable String id){
+    return eduTeacherService.removeById(id);
+}
+</code></pre>
+<h4 id="2-配置逻辑删除插件">2、配置逻辑删除插件</h4>
+<p>MyBatisPlusConfig中配置</p>
+<pre><code class="language-java">@Bean
+public ISqlInjector sqlInjector() {
+return new LogicSqlInjector();
+}
+</code></pre>
+<h4 id="3-在实体类上对应标注注解">3、在实体类上对应标注注解</h4>
+<pre><code class="language-java">@TableLogic
+private Boolean isDeleted;
+</code></pre>
+<p>4、使用postman测试删除<br>
+发送delte请求</p>
+<p>http://localhost:8001/eduservice/edu-teacher/deleteTeacherById/1192249914833055746</p>
+<figure data-type="image" tabindex="14"><img src="https://crlrlc.github.io//post-images/1687265115742.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="15"><img src="https://crlrlc.github.io//post-images/1687265158371.png" alt="" loading="lazy"></figure>
+<p>测试结果<br>
+数据库中的is_deleted字段被修改为1</p>
+<h3 id="八-跨域配置">八、跨域配置</h3>
+<h4 id="1-什么是跨域">1、什么是跨域</h4>
+<p>浏览器从一个域名的网页去请求另一个域名的资源时，域名、端口、协议任一不同，都是跨域 。前后端分离开发中，需要考虑ajax跨域的问题。<br>
+这里我们可以从服务端解决这个问题</p>
+<h4 id="2-配置">2、配置</h4>
+<p>在Controller类上添加注解@CrossOrigin</p>
+<pre><code class="language-java">@RestController
+@CrossOrigin //解决跨域问题
+@RequestMapping(&quot;/eduservice/edu-teacher&quot;)
+public class EduTeacherController {}
+</code></pre>
+<h3 id="九-配置swagger2生成api接口文档">九、配置Swagger2生成API接口文档</h3>
+<h4 id="1-swagger2介绍">1、Swagger2介绍</h4>
+<p>前后端分离开发模式中，api文档是最好的沟通方式。<br>
+Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。</p>
+<p>生成在线接口文档</p>
+<p>方便接口测试</p>
+<pre><code>及时性 (接口变更后，能够及时准确地通知相关前后端开发人员)
+规范性 (并且保证接口的规范性，如接口的地址，请求方式，参数及响应格式和错误信息)
+一致性 (接口信息一致，不会出现因开发人员拿到的文档版本不一致，而出现分歧)
+可测性 (直接在接口文档上进行测试，以方便理解业务)
+</code></pre>
+<h4 id="2-配置swagger2">2、配置Swagger2</h4>
+<p>1）、创建common公共模块，为了让所有模块都可使用<br>
+在guli-parent下创建模块common</p>
+<p>配置：</p>
+<p>groupId：com.achang</p>
+<p>artifactId：common<br>
+<img src="https://crlrlc.github.io//post-images/1687265329856.png" alt="" loading="lazy"></p>
+<p>2）、在common中引入相关依赖</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;scope&gt;provided &lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;!--mybatis-plus--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+    &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
+    &lt;scope&gt;provided &lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;!--lombok用来简化实体类：需要安装lombok插件--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+    &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+    &lt;scope&gt;provided &lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;!--swagger--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;
+    &lt;scope&gt;provided &lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;
+    &lt;scope&gt;provided &lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;!-- redis --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;!-- spring2.X集成redis所需common-pool2
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
+            &lt;artifactId&gt;commons-pool2&lt;/artifactId&gt;
+            &lt;version&gt;2.6.0&lt;/version&gt;
+        &lt;/dependency&gt;--&gt;
+</code></pre>
+<p>3）、在common下面创建子模块service-bas<br>
+<img src="https://crlrlc.github.io//post-images/1687265409940.png" alt="" loading="lazy"></p>
+<p>4）、在模块service-base中，创建swagger的配置类<br>
+创建包 com.achang.servicebase.config ，创建类 SwaggerConfig</p>
+<p>@EnableSwagger2</p>
+<pre><code class="language-java">@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+
+    @Bean
+    public Docket webApiConfig(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName(&quot;webApi&quot;)
+                .apiInfo(webApiInfo())
+                .select()
+                .paths(Predicates.not(PathSelectors.regex(&quot;/admin/.*&quot;)))
+                .paths(Predicates.not(PathSelectors.regex(&quot;/error.*&quot;)))
+                .build();
+    }
+
+
+    private ApiInfo webApiInfo(){
+        return new ApiInfoBuilder()
+                .title(&quot;网站-课程中心API文档&quot;)
+                .description(&quot;本文档描述了课程中心微服务接口定义&quot;)
+                .version(&quot;1.0&quot;)
+                .contact(new Contact(&quot;achang&quot;, &quot;http://achang.com&quot;,
+                        &quot;995931576@qq.com&quot;))
+                .build();
+    }
+}
+</code></pre>
+<p>5）、在模块service模块中引入service-base<br>
+service/pom.xml中引入service-base的坐标</p>
+<pre><code class="language-xml">&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;artifactId&gt;service-base&lt;/artifactId&gt;
+        &lt;groupId&gt;com.achang&lt;/groupId&gt;
+        &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+<p>6）、在service-edu启动类上添加注解<br>
+@ComponentScan(basePackages = &quot;com.achang&quot;)来扫描SwaggerConfig这个类<br>
+<img src="https://crlrlc.github.io//post-images/1687265497326.png" alt="" loading="lazy"></p>
+<pre><code class="language-java">@SpringBootApplication
+@ComponentScan(basePackages = &quot;com.achang&quot;)
+public class Service_edu_Main8001 {
+    public static void main(String[] args) {
+        SpringApplication.run(Service_edu_Main8001.class,args);
+    }
+}
+</code></pre>
+<p>7）测试<br>
+访问：http://localhost:8001/swagger-ui.html<br>
+<img src="https://crlrlc.github.io//post-images/1687265552834.png" alt="" loading="lazy"></p>
+<p>8）、API模型，让swagger有更多提示<br>
+可以添加一些自定义设置，例如：</p>
+<p>定义样例数据</p>
+<p>entity</p>
+<pre><code class="language-java">@ApiModelProperty(value = &quot;创建时间&quot;)
+@TableField(fill = FieldFill.INSERT)
+private Date gmtCreate;
+
+@ApiModelProperty(value = &quot;更新时间&quot;)
+@TableField(fill = FieldFill.INSERT_UPDATE)
+private Date gmtModified;
+</code></pre>
+<figure data-type="image" tabindex="16"><img src="https://crlrlc.github.io//post-images/1687265616934.png" alt="" loading="lazy"></figure>
+<p>9）定义接口说明和参数说明<br>
+定义在类上： @Api</p>
+<p>定义在方法上： @ApiOperation</p>
+<p>定义在参数上： @ApiParam</p>
+<pre><code class="language-java">@RestController
+@CrossOrigin //解决跨域问题
+@RequestMapping(&quot;/eduservice/edu-teacher&quot;)
+@Api(description=&quot;讲师管理&quot;)
+public class EduTeacherController {
+
+    @Autowired
+    private EduTeacherService eduTeacherService;
+
+    //查询讲师表所有数据
+    @ApiOperation(value = &quot;所有讲师列表&quot;)
+    @GetMapping(&quot;/findAll&quot;)
+    public List&lt;EduTeacher&gt; list(){
+        return eduTeacherService.list(null);
+    }
+
+    //逻辑删除讲师
+    @ApiOperation(value = &quot;根据ID删除讲师&quot;)
+    @DeleteMapping(&quot;/deleteTeacherById/{id}&quot;)
+    public boolean deleteTeacherById(@PathVariable String id){
+        return eduTeacherService.removeById(id);
+    }
+
+}
+</code></pre>
+<figure data-type="image" tabindex="17"><img src="https://crlrlc.github.io//post-images/1687265670678.png" alt="" loading="lazy"></figure>
+<h3 id="十-统一返回结果对象">十、统一返回结果对象</h3>
+<h4 id="1-统一返回数据格式json">1、统一返回数据格式Json</h4>
+<p>项目中我们会将响应封装成json返回，一般我们会将所有接口的数据格式统一， 使前端(iOS Android,Web)对数据的操作更一致、轻松。</p>
+<p>一般情况下，统一返回数据格式没有固定的格式，只要能描述清楚返回的数据状态以及要返回的具体数据就可以。</p>
+<p>但是一般会包含状态码、返回消息、数据这几部分内容</p>
+<p>我们的定义统一结果：</p>
+<pre><code class="language-json">{
+&quot;success&quot;: 布尔, //响应是否成功
+&quot;code&quot;: 数字, //响应码
+&quot;message&quot;: 字符串, //返回消息
+&quot;data&quot;: HashMap //返回数据，放在键值对中
+}
+</code></pre>
+<h4 id="2-创建统一结果返回类">2、创建统一结果返回类</h4>
+<p>1）、在common模块下创建子模块 common-utils</p>
+<p>2）、创建接口定义返回码<br>
+创建包com.achang.commonutils，创建接口 ResultCode.java，抽取状态码，便于后期修改</p>
+<pre><code class="language-java">package com.achang.commonutils;
+
+public interface ResultCode {
+    //状态码：成功
+    public static Integer SUCCESS = 20000;
+    //状态码：失败
+    public static Integer ERROR = 20001;
+}
+</code></pre>
+<p>4）、创建结果类</p>
+<pre><code class="language-java">@Data
+public class R {
+    @ApiModelProperty(&quot;是否成功&quot;)
+    private boolean success;
+
+    @ApiModelProperty(&quot;响应码&quot;)
+    private Integer code;
+
+    @ApiModelProperty(&quot;返回信息&quot;)
+    private String message;
+
+    @ApiModelProperty(&quot;返回数据&quot;)
+    private Map&lt;String, Object&gt; data = new HashMap&lt;String, Object&gt;();
+
+    //无参构造方法私有
+    private R() {
+    }
+
+    //成功 静态方法
+    public static R ok(){
+        R r = new R();
+        r.setSuccess(true);
+        r.setCode(ResultCode.SUCCESS);
+        r.setMessage(&quot;成功。。。&quot;);
+        return r;
+    }
+
+    //失败 静态方法
+    public static R error(){
+        R r = new R();
+        r.setSuccess(false);
+        r.setCode(ResultCode.ERROR);
+        r.setMessage(&quot;失败&quot;);
+        return r;
+    }
+
+    public R success(Boolean success){
+        this.setSuccess(success);
+        return this;
+    }
+
+    public R code(Integer code){
+        this.setCode(code);
+        return this;
+    }
+
+    public R message(String message){
+        this.setMessage(message);
+        return this;
+    }
+
+    public R data(String key,Object value){
+        this.data.put(key,value);
+        return this;
+    }
+
+    public R data(Map&lt;String,Object&gt; map){
+        this.setData(map);
+        return this;
+    }
+
+}
+</code></pre>
+<h4 id="3-统一返回结果使用">3、统一返回结果使用</h4>
+<p>1）、在service模块中添加依赖</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.achang&lt;/groupId&gt;
+    &lt;artifactId&gt;common-utils&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>2）、修改Controller中的返回结果</p>
+<p>修改返回结果为R</p>
+<pre><code class="language-java">//查询讲师表所有数据
+@ApiOperation(value = &quot;所有讲师列表&quot;)
+@GetMapping(&quot;/findAll&quot;)
+public R list(){
+    List&lt;EduTeacher&gt; list = eduTeacherService.list(null);
+    return R.ok().data(&quot;items&quot;,list);
+}
+
+//逻辑删除讲师
+@ApiOperation(value = &quot;根据ID删除讲师&quot;)
+@DeleteMapping(&quot;/deleteTeacherById/{id}&quot;)
+public R deleteTeacherById(@ApiParam(name = &quot;id&quot;, value = &quot;讲师ID&quot;, required = true)@PathVariable String id){
+    boolean flag = eduTeacherService.removeById(id);
+    if (flag){
+        return R.ok();
+    }else {
+        return R.error();
+    }
+}
+</code></pre>
+<h3 id="十一-分页和多条件查询接口开发">十一、分页和多条件查询接口开发</h3>
+<h4 id="1-分页">1、分页</h4>
+<p>1）、MyBatisPlusConfig中配置分页插件</p>
+<pre><code class="language-java">/**
+* 分页插件
+*/
+@Bean
+public PaginationInterceptor paginationInterceptor() {
+return new PaginationInterceptor();
+}
+</code></pre>
+<p>2）、分页Controller方法</p>
+<pre><code class="language-java">    //分页查询
+    //page：当前页
+    //limit：每页显示记录数
+    @ApiOperation(value = &quot;分页讲师列表&quot;)
+    @GetMapping(&quot;/pageList/{page}/{limit}&quot;)
+    public R pageList(@ApiParam(name = &quot;page&quot;, value = &quot;当前页码&quot;, required = true)@PathVariable Long page,
+                      @ApiParam(name = &quot;limit&quot;, value = &quot;每页记录数&quot;, required = true)@PathVariable Long limit
+                      ){
+        Page&lt;EduTeacher&gt; pageParam = new Page&lt;&gt;(page, limit);
+        //分页查询，查完后，会将数据封装在pageParam中
+        eduTeacherService.page(pageParam,null);
+        //获取查询到的数据
+        List&lt;EduTeacher&gt; records = pageParam.getRecords();
+        //获取总记录数
+        long total = pageParam.getTotal();
+        return R.ok().data(&quot;total&quot;,total).data(&quot;rows&quot;,records);
+    }
+</code></pre>
+<p>3）、Swagger中测试</p>
+<h4 id="2-多条件组合查询带分页">2、多条件组合查询带分页</h4>
+<p>根据讲师名称name，讲师头衔level、讲师入驻时间gmt_create（时间段）查询</p>
+<p>1）、创建查询对象</p>
+<p>创建service_edu中com.achang.eduservice.entity.vo包，创建TeacherQuery.java查询对象</p>
+<p>TeacherQuery的属性根据前端需要的查询条件来设置</p>
+<pre><code class="language-java">@ApiModel(value = &quot;Teacher查询对象&quot;, description = &quot;讲师查询对象封装&quot;)
+@Data
+public class TeacherQuery implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty(value = &quot;教师名称,模糊查询&quot;)
+    private String name;
+
+    @ApiModelProperty(value = &quot;头衔 1高级讲师 2首席讲师&quot;)
+    private Integer level;
+
+    @ApiModelProperty(value = &quot;查询开始时间&quot;, example = &quot;2019-01-01 10:10:10&quot;)
+    private String begin;//注意，这里使用的是String类型，前端传过来的数据无需进行类型转换
+
+    @ApiModelProperty(value = &quot;查询结束时间&quot;, example = &quot;2019-12-01 10:10:10&quot;)
+    private String end;
+
+}
+</code></pre>
+<p>2）、service</p>
+<p>接口</p>
+<pre><code class="language-java">public interface EduTeacherService extends IService&lt;EduTeacher&gt; {
+    //多条件查询讲师带分页
+    void pageQuery(Page&lt;EduTeacher&gt; pageParam,TeacherQuery teacherQuery);
+}
+</code></pre>
+<p>实现impl</p>
+<pre><code class="language-java">@Service
+public class EduTeacherServiceImpl extends ServiceImpl&lt;EduTeacherMapper, EduTeacher&gt; implements EduTeacherService {
+
+    @Override
+    public void pageQuery(Page&lt;EduTeacher&gt; pageParam, TeacherQuery teacherQuery) {
+
+        //构建条件
+        QueryWrapper&lt;EduTeacher&gt; wrapper = new QueryWrapper&lt;&gt;();
+
+        //取出值，判断他们是否有值
+        String name = teacherQuery.getName();
+        Integer level = teacherQuery.getLevel();
+        String begin = teacherQuery.getBegin();
+        String end = teacherQuery.getEnd();
+
+        //判断条件值是否为空，如果不为空，拼接条件
+        //判断是否有传入教师名
+        if (!StringUtils.isEmpty(name)){
+            //构建条件
+            wrapper.like(&quot;name&quot;,name);//参数1：数据库字段名； 参数2：模糊查询的值
+        }
+        //判断是否传入教师头衔
+        if (!StringUtils.isEmpty(level)){
+            //构造条件
+            wrapper.eq(&quot;level&quot;,level);
+        }
+        if (!StringUtils.isEmpty(begin)){
+            //构造条件
+            wrapper.ge(&quot;gmt_create&quot;,begin);//ge：大于等于
+        }
+        if (!StringUtils.isEmpty(begin)){
+            //构造条件
+            wrapper.le(&quot;gmt_modified&quot;,end);//le:小于等于
+        }
+		
+        //带上门判断后的条件进行分页查询
+        baseMapper.selectPage(pageParam, wrapper);
+    }
+    
+}
+</code></pre>
+<p>3）、controller<br>
+<img src="https://crlrlc.github.io//post-images/1687266021482.png" alt="" loading="lazy"></p>
+<p>增加参数TeacherQuery teacherQuery，非必选</p>
+<pre><code class="language-java">    //多条件查询讲师带分页
+    @ApiOperation(value = &quot;多条件查询讲师带分页&quot;)
+    @PostMapping(&quot;/pageTeacherCondition/{page}/{limit}&quot;)
+    public R pageTeacherCondition(@ApiParam(name = &quot;page&quot;, value = &quot;当前页码&quot;, required = true)@PathVariable Long page,
+                                  @ApiParam(name = &quot;limit&quot;, value = &quot;每页记录数&quot;, required = true)@PathVariable Long limit,
+                                  @RequestBody(required = false) TeacherQuery teacherQuery){//通过封装TeacherQuery对象来直接传递查询条件
+        //创建分页page对象
+        Page&lt;EduTeacher&gt; pageParam = new Page&lt;&gt;(page, limit);
+
+        //调用方法实现多条件分页查询
+        eduTeacherService.pageQuery(pageParam,teacherQuery);
+
+        //获取查询到的数据
+        List&lt;EduTeacher&gt; records = pageParam.getRecords();
+
+        //获取总记录数
+        long total = pageParam.getTotal();
+        return R.ok().data(&quot;total&quot;,total).data(&quot;rows&quot;,records);
+        
+    }
+</code></pre>
+<h3 id="十二-新增和修改讲师接口开发">十二、新增和修改讲师接口开发</h3>
+<h4 id="1-自动填充封装">1、自动填充封装</h4>
+<p>给新增数据和修改数据，添加新建时间和修改时间的自动填充封装功能</p>
+<p>1）、在service-base模块中添加</p>
+<p>创建包handler，创建自动填充类 MyMetaObjectHandler</p>
+<pre><code class="language-java">@Component
+public class MyMetaObjectHandler implements MetaObjectHandler {
+    @Override
+    public void insertFill(MetaObject metaObject) {
+        //参数1：对应类中的属性名称
+        this.setFieldValByName(&quot;gmtCreate&quot;, new Date(), metaObject);
+        this.setFieldValByName(&quot;gmtModified&quot;, new Date(), metaObject);
+    }
+    @Override
+    public void updateFill(MetaObject metaObject) {
+        this.setFieldValByName(&quot;gmtModified&quot;, new Date(), metaObject);
+    }
+}
+</code></pre>
+<p>2）、在实体类添加自动填充注解<br>
+<img src="https://crlrlc.github.io//post-images/1687266103175.png" alt="" loading="lazy"></p>
+<h4 id="2-controller方法定义">2、controller方法定义</h4>
+<p>1）、新增</p>
+<pre><code class="language-java">//新增讲师
+@ApiModelProperty(value = &quot;新增讲师&quot;)
+@PostMapping(&quot;/save&quot;)
+public R save(@RequestBody EduTeacher eduTeacher){
+    boolean flag = eduTeacherService.save(eduTeacher);
+    if (flag){
+        return R.ok();
+    }else {
+        return R.error();
+    }
+}
+</code></pre>
+<p>2)、根据id查询</p>
+<pre><code class="language-java">//根据id查询,用于信息回显
+@ApiModelProperty(value = &quot;根据id查询&quot;)
+@GetMapping(&quot;/getById/{id}&quot;)
+public R getById(@PathVariable String id){
+    EduTeacher teacher = eduTeacherService.getById(id);
+    return R.ok().data(&quot;item&quot;,teacher);
+}
+</code></pre>
+<p>3)、修改讲师</p>
+<pre><code class="language-java">    //修改讲师
+    @ApiModelProperty(value = &quot;修改讲师&quot;)
+    @PostMapping(&quot;/updateById&quot;)
+    public R updateById(@RequestBody EduTeacher teacher){
+        boolean flag = eduTeacherService.updateById(teacher);
+        if (flag){
+            return R.ok();
+        }else {
+            return R.error();
+        }
+    }
+</code></pre>
+<h3 id="十三-统一异常处理">十三、统一异常处理</h3>
+<h4 id="1-统一异常处理">1、统一异常处理</h4>
+<p>1）、创建统一异常处理器</p>
+<p>引入依赖：因为要使用common-utils中的返回类R<br>
+<img src="https://crlrlc.github.io//post-images/1687266206153.png" alt="" loading="lazy"></p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.achang&lt;/groupId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;artifactId&gt;common-utils&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>在service_base中创建统一异常处理类exceptionHandler/GlobalExceptionHandler.java：</p>
+<pre><code class="language-java">@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    //指定出现什么异常会执行这个方法
+    @ExceptionHandler(Exception.class)
+    //因为他不在Controller中。没有@RestController，所以数据不会返回，需要加@ResponeseBody返回数据
+    @ResponseBody
+    public R error(Exception e){
+        e.printStackTrace();
+        return R.error().message(&quot;执行了全局异常处理。。。&quot;);
+    }
+    
+}
+</code></pre>
+<p>2）、测试<br>
+<img src="https://crlrlc.github.io//post-images/1687266275740.png" alt="" loading="lazy"></p>
+<h4 id="2-处理特定异常">2、处理特定异常</h4>
+<p>1）、添加异常处理方法</p>
+<p>exceptionHandler/GlobalExceptionHandler.java中添加<br>
+<img src="https://crlrlc.github.io//post-images/1687266314129.png" alt="" loading="lazy"></p>
+<pre><code class="language-java">@ExceptionHandler(ArithmeticException.class)
+@ResponseBody
+public R error(ArithmeticException e){
+    e.printStackTrace();
+    return R.error().message(&quot;执行了自定义异常&quot;);
+}
+</code></pre>
+<p>2）、测试<br>
+<img src="https://crlrlc.github.io//post-images/1687266355951.png" alt="" loading="lazy"></p>
+<h4 id="3-自定义异常">3、自定义异常</h4>
+<p>1）、创建自定义异常类</p>
+<pre><code class="language-java">@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class AchangException {
+    @ApiModelProperty(value = &quot;状态码&quot;)
+    private Integer code;
+    private String msg;
+}
+</code></pre>
+<p>2）、业务中需要的位置抛出AchangException</p>
+<p>在需要用的地方，直接抛出自定义的异常类</p>
+<p><img src="https://crlrlc.github.io//post-images/1687266420972.png" alt="" loading="lazy"><br>
+3）、添加异常处理方法</p>
+<p>exceptionHandler/GlobalExceptionHandler中添加处理这个异常的处理器</p>
+<pre><code class="language-java">@ExceptionHandler(AchangException.class)
+@ResponseBody
+public R error(AchangException e){
+    e.printStackTrace();;
+    return R.error().message(e.getMsg()).code(e.getCode());
+}
+</code></pre>
+<p>4）、测试<br>
+<img src="https://crlrlc.github.io//post-images/1687266471200.png" alt="" loading="lazy"></p>
 
             </div>
             

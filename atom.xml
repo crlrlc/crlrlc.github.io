@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://crlrlc.github.io/</id>
     <title>Gridea</title>
-    <updated>2023-06-20T14:07:14.644Z</updated>
+    <updated>2023-06-20T14:18:34.698Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://crlrlc.github.io/"/>
     <link rel="self" href="https://crlrlc.github.io/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://crlrlc.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, Gridea</rights>
     <entry>
-        <title type="html"><![CDATA[Day204.前端页面环境搭建]]></title>
+        <title type="html"><![CDATA[Day204.管理后台前端页面环境搭建]]></title>
         <id>https://crlrlc.github.io/post/day204qian-duan-ye-mian-huan-jing-da-jian/</id>
         <link href="https://crlrlc.github.io/post/day204qian-duan-ye-mian-huan-jing-da-jian/">
         </link>

@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Day204.前端页面环境搭建 | Gridea</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://crlrlc.github.io//favicon.ico?v=1687269744902">
+<link rel="stylesheet" href="https://crlrlc.github.io//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="搭建项目前端页面环境
+一、vue-element-admin
+1、简介
+而vue-element-admin是基于element-ui 的一套后台管理系统集成方案。
+功能：https://panjiachen.github.io/vue-e..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://crlrlc.github.io/">
+        <img src="https://crlrlc.github.io//images/avatar.png?v=1687269744902" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://crlrlc.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Day204.前端页面环境搭建</h2>
+            <div class="post-date">2023-04-05</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="搭建项目前端页面环境">搭建项目前端页面环境</h1>
+<h2 id="一-vue-element-admin">一、vue-element-admin</h2>
+<h3 id="1-简介">1、简介</h3>
+<p>而vue-element-admin是基于element-ui 的一套后台管理系统集成方案。</p>
+<p>功能：https://panjiachen.github.io/vue-element-admin-site/zh/guide/#%E5%8A%9F%E8%83%BD</p>
+<p>GitHub地址：https://github.com/PanJiaChen/vue-element-admin</p>
+<p>项目在线预览：https://panjiachen.gitee.io/vue-element-admin/#/login?redirect=%2Fdashboard</p>
+<h3 id="2-安装">2、安装</h3>
+<pre><code class="language-shell"># 解压压缩包
+# 进入目录
+cd vue-element-admin-master
+
+# 安装依赖，安装后会出现node_modules的文件夹，里面存放依赖
+npm install
+
+# 启动。执行后，浏览器自动弹出并访问http://localhost:9527/
+npm run dev
+</code></pre>
+<p>遇到的问题：</p>
+<p>这里我的npm install一直报错，所有我直接去找老师的依赖直接导入 不下载了，然后通过npm run dev发现也报错，说无法编译，不支持window64位的Node.js 10.x，我上网找了答案如下：</p>
+<p>首先在项目目录下依次安装以下文件：</p>
+<p>npm install node-sass</p>
+<p>npm i node-sass -D</p>
+<p>如果继续报错，会提醒安装element-ui就可以运行项目了,我们继续在项目目录下安装它就好了：</p>
+<p>npm install --save element-ui</p>
+<p>以上操作后项目可以通过npm run dev 运行起来<br>
+<img src="https://crlrlc.github.io//post-images/1687267130500.png" alt="" loading="lazy"></p>
+<p>此步已经整完了后台系统前端项目的环境搭建。</p>
+<h2 id="二-项目的创建和基本配置">二、项目的创建和基本配置</h2>
+<h3 id="1-创建项目">1、创建项目</h3>
+<p>将vue-admin-template-master重命名为guli-admin</p>
+<h3 id="2-修改项目信息">2、修改项目信息</h3>
+<p>package.json</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;guli-admin&quot;,
+    ......
+    &quot;description&quot;: &quot;谷粒学院后台管理系统&quot;,
+    &quot;author&quot;: &quot;achang &lt;995931576@qq.com&gt;&quot;,
+    ......
+}
+</code></pre>
+<h3 id="3-如果需要修改端口号">3、如果需要修改端口号</h3>
+<p>config/index.js 中修改</p>
+<pre><code>port: 9528
+</code></pre>
+<h3 id="4-不使用eslint语法检查">4、不使用Eslint语法检查</h3>
+<figure data-type="image" tabindex="1"><img src="https://crlrlc.github.io//post-images/1687267247546.png" alt="" loading="lazy"></figure>
+<h3 id="5-修改后端接口访问地址">5、修改后端接口访问地址</h3>
+<figure data-type="image" tabindex="2"><img src="https://crlrlc.github.io//post-images/1687267287960.png" alt="" loading="lazy"></figure>
+<h3 id="6-项目的目录结构">6、项目的目录结构</h3>
+<pre><code>.
+├── build // 构建脚本
+├── config // 全局配置
+├── node_modules // 项目依赖模块
+├── src //项目源代码
+├── static // 静态资源
+└── package.jspon // 项目信息和依赖配置
+</code></pre>
+<pre><code>src
+├── api // 各种接口
+├── assets // 图片等资源
+├── components // 各种公共组件，非公共组件在各自view下维护
+├── icons //svg icon
+├── router // 路由表
+├── store // 存储
+├── styles // 各种样式
+├── utils // 公共工具，非公共工具，在各自view下维护
+├── views // 各种layout
+├── App.vue //***项目顶层组件***
+├── main.js //***项目入口文件***
+└── permission.js //认证入口
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://crlrlc.github.io//post-images/1687267364597.png" alt="" loading="lazy"></figure>
+<h3 id="7-运行项目">7、运行项目</h3>
+<pre><code class="language-shell">npm run dev
+</code></pre>
+<h2 id="三-登录页修改">三、登录页修改</h2>
+<p>src/views/login/index.vue（登录组件）</p>
+<pre><code class="language-html">&lt;h3 class=&quot;title&quot;&gt;阿昌之谷粒学院后台管理系统&lt;/h3&gt;
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://crlrlc.github.io//post-images/1687267535612.png" alt="" loading="lazy"></figure>
+<pre><code class="language-html">&lt;el-button :loading=&quot;loading&quot; type=&quot;primary&quot; style=&quot;width:100%;&quot;
+@click.native.prevent=&quot;handleLogin&quot;&gt;
+登录
+&lt;/el-button&gt;
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://crlrlc.github.io//post-images/1687267621390.png" alt="" loading="lazy"></figure>
+<h2 id="四-页面零星修改">四、页面零星修改</h2>
+<h3 id="1-国际化设置">1、国际化设置</h3>
+<p>打开 src/main.js（项目的js入口），第7行，修改语言为 zh-CN，使用中文语言环境，例如：日期时间组件</p>
+<figure data-type="image" tabindex="6"><img src="https://crlrlc.github.io//post-images/1687267701692.png" alt="" loading="lazy"></figure>
+<h3 id="2-导航栏文字">2、导航栏文字</h3>
+<p>src/views/layout/components（当前项目的布局组件）<br>
+src/views/layout/components/Navbar.vue<br>
+13行</p>
+<pre><code class="language-html">&lt;el-dropdown-item&gt;
+首页
+&lt;/el-dropdown-item&gt;
+</code></pre>
+<p>17 行</p>
+<pre><code class="language-html">&lt;span style=&quot;display:block;&quot; @click=&quot;logout&quot;&gt;登出&lt;/span&gt;
+</code></pre>
+<h1 id="后台系统登录功能改造">后台系统登录功能改造</h1>
+<h2 id="一-模拟登录">一、模拟登录</h2>
+<figure data-type="image" tabindex="7"><img src="https://crlrlc.github.io//post-images/1687267895837.png" alt="" loading="lazy"></figure>
+<p>注意下面的https和http，我们这里使用http，不是https；<br>
+https是需要相关部门认证才可以使用</p>
+<figure data-type="image" tabindex="8"><img src="https://crlrlc.github.io//post-images/1687267938221.png" alt="" loading="lazy"></figure>
+<p>后端根据这个返回下面的(1)、(2)<br>
+<img src="https://crlrlc.github.io//post-images/1687267979499.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1687268003302.png" alt="" loading="lazy"></p>
+<p>【开发接口】创建controller/EduLoginController</p>
+<pre><code class="language-java">@RestController
+@RequestMapping(&quot;/eduService/user&quot;)
+public class EduLoginController {
+
+    //login
+    @PostMapping(&quot;/login&quot;)
+    public R login(){
+        return R.ok().data(&quot;token&quot;,&quot;admin&quot;);
+    }
+    
+    //info
+    @GetMapping(&quot;/info&quot;)
+    public R info(){
+        return R.ok().data(&quot;roles&quot;,&quot;admin&quot;).data(&quot;name&quot;,&quot;阿昌&quot;).data(&quot;avatar&quot;,&quot;http://www.weixintouxiang.cn/weixin/20140607090832328.gif&quot;);
+    }
+    
+}
+</code></pre>
+<p>修改前端地址，api/login.js修改为上面的接口路径<br>
+<img src="https://crlrlc.github.io//post-images/1687268065008.png" alt="" loading="lazy"></p>
+<p>重启前端服务器，开启后端服务器，测试<br>
+<img src="https://crlrlc.github.io//post-images/1687268096916.png" alt="" loading="lazy"></p>
+<p>出现了【跨域问题】<br>
+<img src="https://crlrlc.github.io//post-images/1687268141777.png" alt="" loading="lazy"></p>
+<p>什么是跨域问题：</p>
+<p>通过一个地址去访问另外一个地址，这个过程中如果有三个地方任何不一样<br>
+<img src="https://crlrlc.github.io//post-images/1687268177374.png" alt="" loading="lazy"></p>
+<p>哪三个地方：访问协议、ip地址、端口号</p>
+<p>跨域解决方式：<br>
+<img src="https://crlrlc.github.io//post-images/1687268223496.png" alt="" loading="lazy"></p>
+<p>后端的EduLoginController类上加上@CrossOrigin</p>
+<pre><code class="language-java">@RestController
+@RequestMapping(&quot;/eduService/user&quot;)
+@CrossOrigin //解决跨域问题
+public class EduLoginController {
+	...
+}
+</code></pre>
+<p>之后再次访问即可</p>
+<h2 id="二-前端框架使用过程">二、前端框架使用过程</h2>
+<figure data-type="image" tabindex="9"><img src="https://crlrlc.github.io//post-images/1687268463541.jpg" alt="" loading="lazy"></figure>
+<h2 id="三-讲师列表的前端实现">三、讲师列表的前端实现</h2>
+<h3 id="1-添加路由">1、添加路由</h3>
+<p>在src/router/index.js中，复制一份example做代码修改</p>
+<pre><code class="language-js">  {
+    //地址输入
+    path: '/teacher',
+    component: Layout,
+    //redirect：重定向地址
+    redirect: '/teacher/table',
+    name: '讲师管理',
+    //title:显示标签 ， icon：显示图标
+    meta: { title: '讲师管理', icon: 'example' },
+    children: [
+      {
+        path: 'table',
+        name: '讲师列表',
+        component: () =&gt; import('@/views/table/index'),
+        meta: { title: '讲师列表', icon: 'table' }
+      },
+      {
+        path: 'save',
+        name: '添加讲师',
+        component: () =&gt; import('@/views/tree/index'),
+        meta: { title: '添加讲师', icon: 'tree' }
+      }
+    ]
+  },
+</code></pre>
+<figure data-type="image" tabindex="10"><img src="https://crlrlc.github.io//post-images/1687268559672.png" alt="" loading="lazy"></figure>
+<h3 id="2-创建路由对应的组件">2、创建路由对应的组件</h3>
+<p>创建src/views/edu/teacher文件夹存放组件，并创建list.vue和save.vue</p>
+<p>将对应的路由设置为对应的组件页面<br>
+<img src="https://crlrlc.github.io//post-images/1687268598240.png" alt="" loading="lazy"></p>
+<h3 id="3-定义访问的接口地址">3、定义访问的接口地址</h3>
+<p>在src/api文件创建teacher/teacher.js定义访问的接口地址</p>
+<pre><code class="language-js">import request from '@/utils/request' //引入已经封装好的axios 和 拦截器
+
+export default{
+    //1、讲师列表（多条件分页查询）
+    //page：当前页，limit：每页记录数，teacherQuery：条件对象
+    getTeacherListPage(page,limit,teacherQuery){
+        return request({
+            // url: '/eduservice/edu-teacher/pageTeacherCondition/'+page+'/'+limit,
+            url: `/eduservice/edu-teacher/pageTeacherCondition/${page}/${limit}`,
+            method: 'post',
+            //teacherQuery条件对象，如果后端使用RequestBody获取数据
+            //data表示把对象转换成json对象进行传递到接口里
+            data: teacherQuery
+          })
+    }
+}
+</code></pre>
+<h3 id="4-组件页面调用定义接口方法">4、组件页面调用定义接口方法</h3>
+<p>在讲师列表页面list.vue页面调用定义的接口方法，得到接口返回数据</p>
+<pre><code class="language-html">.&lt;template&gt;
+  &lt;div class=&quot;app-container&quot;&gt;讲师列表&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+//引入要调用的方法，teacher.js文件
+import teacher from &quot;@/api/teacher/teacher.js&quot;;
+
+export default {
+  //写核心代码位置
+  data() {
+    //1、定义变量和初始值
+    return {
+      list: null, //查询之后给接口返回的数据装的集合
+      page: 1, //当前页
+      limit: 10, //每页显示记录数
+      teacherQuery: {}, //条件封装对象
+      total: 0, //总记录数
+    };
+  },
+  created() {
+    //页面渲染之前执行，调用method定义的方法
+    //调用
+    this.getList();
+  },
+  methods: {
+    //调用具体的方法，调用teacher.js定义的方法
+    //讲师列表的方法
+    getList() {
+      teacher
+        .getTeacherListPage(this.page, this.limit, this.teacherQuery)
+        .then((resp) =&gt; {
+          //resp接口返回的数据
+          // console.log(resp);
+          this.list = resp.data.rows;
+          console.log(this.list);
+          this.total = resp.data.total;
+          console.log(this.total);
+        }) //请求成功
+        .catch((err) =&gt; {
+          console.log(err);
+        }); //请求失败
+    },
+  },
+};
+&lt;/script&gt;
+
+&lt;style&gt;&lt;/style&gt;
+</code></pre>
+<h3 id="5-测试">5、测试</h3>
+<figure data-type="image" tabindex="11"><img src="https://crlrlc.github.io//post-images/1687268711522.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="12"><img src="https://crlrlc.github.io//post-images/1687268737577.png" alt="" loading="lazy"></figure>
+<h3 id="6-使用element-ui快速构建页面">6、使用element-ui快速构建页面</h3>
+<pre><code class="language-html">.&lt;template&gt;
+  &lt;div&gt;
+    &lt;el-table
+      :data=&quot;list&quot;
+      style=&quot;width: 100%&quot;
+      border
+      fit
+      highlight-current-row
+      element-loading-text=&quot;数据加载中&quot;
+      v-loading=&quot;listLoading&quot;
+    &gt;
+      &lt;el-table-column prop=&quot;date&quot; label=&quot;序号&quot; width=&quot;70&quot; align=&quot;center&quot;&gt;
+        &lt;template slot-scope=&quot;scope&quot;&gt;
+          {{ (page - 1) * limit + scope.$index + 1 }}
+        &lt;/template&gt;
+      &lt;/el-table-column&gt;
+      &lt;el-table-column prop=&quot;name&quot; label=&quot;名称&quot; width=&quot;80&quot;&gt; &lt;/el-table-column&gt;
+      &lt;el-table-column label=&quot;头衔&quot; width=&quot;80&quot;&gt;
+        &lt;template slot-scope=&quot;scope&quot;&gt;
+          {{ scope.row.level === 1 ? &quot;高级讲师&quot; : &quot;首席讲师&quot; }}
+        &lt;/template&gt;
+      &lt;/el-table-column&gt;
+      &lt;el-table-column prop=&quot;intro&quot; label=&quot;资历&quot; /&gt;
+      &lt;el-table-column prop=&quot;gmtCreate&quot; label=&quot;添加时间&quot; width=&quot;160&quot; /&gt;
+      &lt;el-table-column prop=&quot;sort&quot; label=&quot;排序&quot; width=&quot;60&quot; /&gt;
+      &lt;el-table-column label=&quot;操作&quot; width=&quot;200&quot; align=&quot;center&quot;&gt;
+        &lt;template slot-scope=&quot;scope&quot;&gt;
+          &lt;router-link :to=&quot;'/edu/teacher/edit/' + scope.row.id&quot;&gt;
+            &lt;el-button type=&quot;primary&quot; size=&quot;mini&quot; icon=&quot;el-icon-edit&quot;
+              &gt;修改&lt;/el-button
+            &gt;
+          &lt;/router-link&gt;
+          &lt;el-button
+            type=&quot;danger&quot;
+            size=&quot;mini&quot;
+            icon=&quot;el-icon-delete&quot;
+            @click=&quot;removeDataById(scope.row.id)&quot;
+            &gt;删除&lt;/el-button
+          &gt;
+        &lt;/template&gt;
+      &lt;/el-table-column&gt;
+    &lt;/el-table&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="7-分页功能实现">7、分页功能实现</h3>
+<p>getList方法的修改<br>
+<img src="https://crlrlc.github.io//post-images/1687268799530.png" alt="" loading="lazy"></p>
+<pre><code class="language-html">&lt;!--分页组件--&gt;
+&lt;el-pagination
+               background
+               layout=&quot;prev, pager, next,total,jumper&quot;
+               :total=&quot;total&quot;
+               :page-size=&quot;limit&quot;
+               style=&quot;padding: 30px 0; text-align: center&quot;
+               :current-page=&quot;page&quot;
+               @current-change=&quot;getList&quot;
+               &gt;
+&lt;/el-pagination&gt;
+</code></pre>
+<figure data-type="image" tabindex="13"><img src="https://crlrlc.github.io//post-images/1687268836326.png" alt="" loading="lazy"></figure>
+<h3 id="8-讲师条件查询">8、讲师条件查询</h3>
+<pre><code class="language-html">    &lt;!--多条件查询表单--&gt;
+    &lt;el-form
+      :inline=&quot;true&quot;
+      class=&quot;demo-form-inline&quot;
+      style=&quot;margin-left: 20px; margin-top: 12px;&quot;
+    &gt;
+      &lt;el-form-item label=&quot;名称&quot;&gt;
+        &lt;el-input
+          v-model=&quot;teacherQuery.name&quot;
+          placeholder=&quot;请输入名称&quot;
+        &gt;&lt;/el-input&gt;
+      &lt;/el-form-item&gt;
+      &lt;el-form-item label=&quot;级别&quot;&gt;
+        &lt;el-select v-model=&quot;teacherQuery.level&quot; placeholder=&quot;讲师头衔&quot;&gt;
+          &lt;el-option label=&quot;高级讲师&quot; :value=&quot;1&quot;&gt;&lt;/el-option&gt;
+          &lt;el-option label=&quot;特级讲师&quot; :value=&quot;2&quot;&gt;&lt;/el-option&gt;
+        &lt;/el-select&gt;
+      &lt;/el-form-item&gt;
+      &lt;el-form-item label=&quot;添加时间&quot;&gt;
+        &lt;el-time-picker
+          placeholder=&quot;选择开始时间&quot;
+          v-model=&quot;teacherQuery.begin&quot;
+          value-format=&quot;yyyy-MM-dd HH:mm:ss&quot;
+          default-time=&quot;00:00:00&quot;
+          type=&quot;datetime&quot;
+        &gt;&lt;/el-time-picker&gt;
+      &lt;/el-form-item&gt;
+      &lt;el-form-item&gt;
+        &lt;el-time-picker
+          placeholder=&quot;选择截止时间&quot;
+          v-model=&quot;teacherQuery.end&quot;
+          value-format=&quot;yyyy-MM-dd HH:mm:ss&quot;
+          default-time=&quot;00:00:00&quot;
+          type=&quot;datetime&quot;
+        &gt;&lt;/el-time-picker&gt;
+      &lt;/el-form-item&gt;
+      &lt;el-form-item&gt;
+        &lt;el-button type=&quot;primary&quot; icon=&quot;el-icon-search&quot; @click=&quot;getList()&quot;
+          &gt;查询&lt;/el-button
+        &gt;
+        &lt;el-button type=&quot;default&quot; @click=&quot;resetData()&quot;&gt;清空&lt;/el-button&gt;
+      &lt;/el-form-item&gt;
+    &lt;/el-form&gt;
+</code></pre>
+<p>方法调用：</p>
+<pre><code class="language-js">  data() {
+    return {
+	...
+      teacherQuery: {}, //条件封装对象
+    };
+  },
+  methods: {
+    getList(page = 1) {
+      this.page = page;
+      teacher
+        .getTeacherListPage(this.page, this.limit, this.teacherQuery)
+        .then((resp) =&gt; {
+          // console.log(resp);
+          this.list = resp.data.rows;
+          console.log(this.list);
+          this.total = resp.data.total;
+          console.log(this.total);
+        }) 
+        .catch((err) =&gt; {
+          console.log(err);
+        }); 
+    },
+    //清空方法
+    resetData() {
+      //表单输入项数据清空
+      this.teacherQuery = {};
+      //查询所有讲师数据
+      this.getList();
+    },
+  },
+</code></pre>
+<figure data-type="image" tabindex="14"><img src="https://crlrlc.github.io//post-images/1687268967990.png" alt="" loading="lazy"></figure>
+<h3 id="9-讲师删除">9、讲师删除</h3>
+<p>1）定义api：</p>
+<p>src/api/teacher/teacher.js</p>
+<pre><code class="language-js">export default{
+	...
+    //根据id删除讲师
+    removeById(id){
+        return request({
+            url: `/eduservice/edu-teacher/deleteTeacherById/${id}`,
+            method: 'delete',
+        })
+    }
+}
+</code></pre>
+<p>2）定义methods：</p>
+<p>src/views/edu/teacher/list.vue</p>
+<p>使用MessageBox 弹框组件<br>
+<img src="https://crlrlc.github.io//post-images/1687269022700.png" alt="" loading="lazy"></p>
+<pre><code class="language-js">removeById(id) {
+    this.$confirm(&quot;此操作将永久删除该讲师记录, 是否继续?&quot;, &quot;提示&quot;, {
+        confirmButtonText: &quot;确定&quot;,
+        cancelButtonText: &quot;取消&quot;,
+        type: &quot;warning&quot;,
+    }).then(() =&gt; {
+        //点击确定，执行then方法
+        teacher.removeById(id)
+            .then((resp) =&gt; {//删除成功
+            //提示信息
+            this.$message({
+                type: &quot;success&quot;,
+                message: &quot;删除成功!&quot;,
+            });
+            //刷新页面
+            this.getList();
+        });
+    });
+}
+</code></pre>
+<p>测试<br>
+<img src="https://crlrlc.github.io//post-images/1687269086919.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1687269127445.png" alt="" loading="lazy"></p>
+<h3 id="10-讲师添加">10、讲师添加</h3>
+<p>1）、定义api方法：</p>
+<p>src/api/teacher/teacher.js</p>
+<pre><code class="language-js">//新增讲师
+saveTeacher(teacher){
+    return request({
+        url: `/eduservice/edu-teacher/save`,
+        method: `post`,
+        data: teacher
+    })
+}
+</code></pre>
+<p>2、初始化组件：</p>
+<p>src/views/edu/teacher/save.vue</p>
+<pre><code class="language-html">.&lt;template&gt;
+    &lt;div class=&quot;app-container&quot;&gt;
+        &lt;el-form label-width=&quot;120px&quot;&gt;
+            &lt;el-form-item label=&quot;讲师名称&quot;&gt;
+                &lt;el-input v-model=&quot;teacher.name&quot; /&gt;
+            &lt;/el-form-item&gt;
+            &lt;el-form-item label=&quot;讲师排序&quot;&gt;
+                &lt;el-input-number
+                                 v-model=&quot;teacher.sort&quot;
+                                 controls-position=&quot;right&quot;
+                                 min=&quot;0&quot;
+                                 /&gt;
+            &lt;/el-form-item&gt;
+            &lt;el-form-item label=&quot;讲师头衔&quot;&gt;
+                &lt;el-select v-model=&quot;teacher.level&quot; clearable placeholder=&quot;选择讲师头衔&quot;&gt;
+                    &lt;!--
+数据类型一定要和取出的json中的一致，否则没法回填
+因此，这里value使用动态绑定的值，保证其数据类型是number
+--&gt;
+                    &lt;el-option :value=&quot;1&quot; label=&quot;高级讲师&quot; /&gt;
+                    &lt;el-option :value=&quot;2&quot; label=&quot;首席讲师&quot; /&gt;
+                &lt;/el-select&gt;
+            &lt;/el-form-item&gt;
+            &lt;el-form-item label=&quot;讲师资历&quot;&gt;
+                &lt;el-input v-model=&quot;teacher.career&quot; /&gt;
+            &lt;/el-form-item&gt;
+            &lt;el-form-item label=&quot;讲师简介&quot;&gt;
+                &lt;el-input v-model=&quot;teacher.intro&quot; :rows=&quot;10&quot; type=&quot;textarea&quot; /&gt;
+            &lt;/el-form-item&gt;
+            &lt;!-- 讲师头像：TODO --&gt;
+            &lt;el-form-item&gt;
+                &lt;el-button
+                           :disabled=&quot;saveBtnDisabled&quot;
+                           type=&quot;primary&quot;
+                           @click=&quot;saveOrUpdate&quot;
+                           &gt;保存&lt;/el-button
+                    &gt;
+            &lt;/el-form-item&gt;
+        &lt;/el-form&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<pre><code class="language-js">&lt;script&gt;
+    //引入对应的新增api方法
+    import teacherApi from &quot;@/api/teacher/teacher.js&quot;;
+
+export default {
+    data() {
+        return {
+            teacher: {
+                name: &quot;&quot;,
+                sort: 0,
+                level: 1,
+                career: &quot;&quot;,
+                intro: &quot;&quot;,
+                avatar: &quot;&quot;,
+            },
+            saveBtnDisabled: false, // 保存按钮是否禁用,
+        };
+    },
+    methods: {
+        saveOrUpdate() {
+            this.saveBtnDisabled = true;
+            this.saveData();
+        },
+        // 保存
+        saveData() {
+            teacherApi.saveTeacher(this.teacher).then((resp) =&gt; {//添加成功
+                //提示信息
+                this.$message({
+                    message: &quot;添加讲师记录成功&quot;,
+                    type: &quot;success&quot;,
+                });
+                //回到讲师列表 路由跳转
+                this.$router.push({path: '/teacher/table'})
+            });
+        },
+    },
+};
+&lt;/script&gt;
+</code></pre>
+<p>后端按创建时间排序<br>
+eduservice/service/impl/EduTeacherServiceImpl</p>
+<pre><code class="language-java">//排序
+wrapper.orderByDesc(&quot;gmt_create&quot;);
+</code></pre>
+<p>测试<br>
+<img src="https://crlrlc.github.io//post-images/1687269245895.png" alt="" loading="lazy"><br>
+<img src="https://crlrlc.github.io//post-images/1687269269256.png" alt="" loading="lazy"></p>
+<h3 id="11-讲师信息回显">11、讲师信息回显</h3>
+<p>添加一个隐藏路由：</p>
+<p>src/router/index.js，/teacher路由的子路由没让他去save.vue添加讲师组件</p>
+<pre><code class="language-js">{
+    path: 'edit/:id',
+    name: 'EduTeacherEdit',
+    component: () =&gt; import('@/views/edu/teacher/save.vue'),
+    meta: { title: '编辑讲师', noCache: true },
+	hidden: true
+}
+</code></pre>
+<figure data-type="image" tabindex="15"><img src="https://crlrlc.github.io//post-images/1687269320268.png" alt="" loading="lazy"></figure>
+<p>通过router-link 的:to去’/teacher/edit/【:id携带id】'也就是上面这个路由，然后路由转换到save.vue组件上</p>
+<figure data-type="image" tabindex="16"><img src="https://crlrlc.github.io//post-images/1687269370191.png" alt="" loading="lazy"></figure>
+<p>在表单页面实现数据回显：</p>
+<p>定义根据id查询讲师信息的api方法</p>
+<pre><code class="language-js">//根据id查询讲师
+updateById(id){
+    return request({
+        url: `/eduservice/edu-teacher/getById/${id}`,
+        method: `get`,
+    })
+}
+</code></pre>
+<p>src/edu/teacher/save.vue</p>
+<pre><code class="language-js">//根据id查询，数据回显
+getInfoById(id){
+    teacherApi.updateById(id)
+        .then(resp =&gt;{
+        this.teacher = resp.data.item
+    })
+}
+</code></pre>
+<p>src/edu/teacher/save.vue 中created()数据渲染前进行判断请求中是否有id值</p>
+<pre><code class="language-js">created() {//在页面渲染之前
+    //判断路径中是否有id值
+    if(this.$route.params &amp;&amp; this.$route.params.id){
+        //从路径中获取id值
+        const id = this.$route.params.id
+        //调用根据id查询的方法
+        this.getInfoById(id)
+    }
+}
+</code></pre>
+<figure data-type="image" tabindex="17"><img src="https://crlrlc.github.io//post-images/1687269462655.png" alt="" loading="lazy"></figure>
+<p>数据回显<br>
+<img src="https://crlrlc.github.io//post-images/1687269499093.png" alt="" loading="lazy"></p>
+<h3 id="12-讲师修改">12、讲师修改</h3>
+<p>guli-admin\src\api\teacher\teacher.js，定义api讲师修改方法</p>
+<pre><code class="language-js">//修改讲师信息
+updateTeacherInfo(teacher){
+    return request({
+        url: `/eduservice/edu-teacher/updateById`,
+        method: `post`,
+        data: teacher
+    })
+}
+</code></pre>
+<p>guli-admin\src\views\edu\teacher\save.vue，修改方法</p>
+<pre><code class="language-js//修改讲师的方法">updateTeacher() {
+    teacherApi.updateTeacherInfo(this.teacher).then((resp) =&gt; {
+        //提示信息
+        this.$message({
+            message: &quot;修改讲师记录成功&quot;,
+            type: &quot;success&quot;,
+        });
+        //回到讲师列表 路由跳转
+        this.$router.push({ path: &quot;/teacher/table&quot; });
+    });
+}
+</code></pre>
+<p>将修改和新增方法合一，进行判断</p>
+<pre><code class="language-js">saveOrUpdate() {
+    //判断修改还是新增操作
+    //根据teacher对象是否有id值来判断
+    if (!this.teacher.id) {
+        //没有id值，做【新增操作】
+        this.saveBtnDisabled = true;
+        this.saveData();
+    }else{
+        //有id值，做【修改操作】
+        this.updateTeacher()
+    }
+}
+</code></pre>
+<p>遇到的问题：</p>
+<p>一直报跨域问题，检查发现后端EduTeacherController的@PostMapping()中的地址后面多加了/，一直报错跨域问题<br>
+<img src="https://crlrlc.github.io//post-images/1687269594610.png" alt="" loading="lazy"></p>
+<h3 id="13-存在bug问题">13、存在BUG问题</h3>
+<figure data-type="image" tabindex="18"><img src="https://crlrlc.github.io//post-images/1687269645273.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="19"><img src="https://crlrlc.github.io//post-images/1687269669934.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="20"><img src="https://crlrlc.github.io//post-images/1687269692251.png" alt="" loading="lazy"></figure>
+<p>解决方法<br>
+通过使用监听器监听</p>
+<p>将原本created()里面的发按法封装到init()中，在created()中调用，并通过监听器监听路由变化就执行init()判断路径是否有id值，有就获取id值，没有就清空数据；</p>
+<p>$route(to, from)固定写法，意思为监听路由变化</p>
+<pre><code class="language-js">...
+init() {
+    //判断路径中是否有id值
+    if (this.$route.params &amp;&amp; this.$route.params.id) {
+        //从路径中获取id值
+        const id = this.$route.params.id;
+        //调用根据id查询的方法
+        this.getInfoById(id);
+    }else{
+        this.teacher = {};
+    }
+},
+},
+    created() {
+        //在页面渲染之前
+        this.init()
+    },
+        watch: {
+            $route(to, from) {
+                //路由变化方式，当路由发送变化，方法就执行
+                console.log(&quot;watch $route&quot;);
+                this.init()
+            },
+        }
+</code></pre>
+<figure data-type="image" tabindex="21"><img src="https://crlrlc.github.io//post-images/1687269731286.png" alt="" loading="lazy"></figure>
+<p>至此，讲师管理模块的前端增删改查功能完成</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://crlrlc.github.io/post/day201xiang-mu-qi-bu-mybatisplus-gu-li-xue-yuan/">
+                  <h3 class="post-title">
+                    Day201.项目起步
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '1330fb8c1289d6f13c31',
+        clientSecret: '65e81a775ef8161516aabb9157b71b8af62b58a1',
+        repo: 'crlrlc.github.io',
+        owner: 'crlrlc',
+        admin: ['crlrlc'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
